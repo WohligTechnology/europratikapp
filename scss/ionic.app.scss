@@ -1,0 +1,121 @@
+
+
+$light:                           #fff !default;
+$stable:                          #000 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+$font-family-sans-serif: "Roboto", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-light-sans-serif: "Roboto", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+// @import "www/lib/scss/app.scss";
+@import "www/lib/ionic/scss/ionic";
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("../fonts/Roboto-Regular.ttf");
+  font-weight: normal;
+}
+
+//contact start
+body{
+  font-family: $font-family-sans-serif;
+}
+p.name{
+
+}
+.display-inline{
+  display: inline-block;
+}
+.icon-set{
+
+  font-size: 22px;
+}
+.col-10.i1{
+  text-align: center;
+}
+.marg{
+  margin-top: 15px !important;
+}
+.margin0{
+  margin: 0px;
+}
+.padding0{
+  padding: 0px;
+}
+.icon-set.display-inline i {
+    line-height: 100%;
+    color: #989898;
+}
+p.headaddr{
+  display: inline-block;
+  border-bottom: 1px solid black;
+  text-align: center;
+
+}
+
+
+.bar.bar-stable .title{
+  color:white;
+}
+.col img{
+  width: 100%;
+  height: auto;
+}
+.close-btn{
+  text-align: right;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+.actives {
+    border-left: 4px solid red;
+    color: red;
+}
+.item-complex .item-content{
+  font-size: 12px;
+}
+.menu-icon{
+  font-size: 20px;
+}
+.exclusive {
+    text-align: center;
+    display: block;
+    background-color: #ef473a;
+    font-size: 11px;
+    // margin-top: 4px;
+    padding: 5px 0px;
+    color: #fff;
+}
+.popular{
+  text-align: center;
+  display: block;
+  background-color: #ef473a;
+  font-size: 11px;
+  // margin-top: 15px;
+  padding: 5px 0px;
+  color: #fff;
+}
+span.subs{
+  color:black;
+
+}
+.products-mg{
+  margin-top: 20px;
+}
