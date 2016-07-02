@@ -1,7 +1,7 @@
 {
-  "name": "auroo-app",
+  "name": "Euro Pratik",
   "version": "1.1.1",
-  "description": "auroo-app: An Ionic project",
+  "description": "Euro Pratik App",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
