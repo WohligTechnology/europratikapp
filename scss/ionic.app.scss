@@ -85,8 +85,8 @@ p.headaddr{
   margin-right: 10px;
 }
 .actives {
-    border-left: 4px solid red;
-    color: red;
+    border-left: 4px solid $assertive;
+    color: $assertive;
 }
 .item-complex .item-content{
   font-size: 12px;
@@ -97,7 +97,7 @@ p.headaddr{
 .exclusive {
     text-align: center;
     display: block;
-    background-color: #ef473a;
+    background-color: $assertive;
     font-size: 11px;
     // margin-top: 4px;
     padding: 5px 0px;
@@ -106,7 +106,7 @@ p.headaddr{
 .popular{
   text-align: center;
   display: block;
-  background-color: #ef473a;
+  background-color: $assertive;
   font-size: 11px;
   // margin-top: 15px;
   padding: 5px 0px;
@@ -118,4 +118,40 @@ span.subs{
 }
 .products-mg{
   margin-top: 20px;
+}
+.padding2{
+  padding: 2px;
+}
+.contact-address{
+  ul{
+    display: inline-flex;
+    li{
+      display: inline-block;
+    }
+  }
+}
+.pl15{
+      padding-left: 15px;
+}
+.title.title-left {
+    text-align: center !important;
+    left:0 !important;
+}
+.set{
+  display: block;
+margin-top: -5px;
+color:$assertive;
+}
+.contact-form{
+  .item{
+      border-width: 0px;
+  }
+    .item-input{
+      padding: 6px 0 5px 1px;
+      input{
+            border-bottom: 1px solid #ccc;
+      }
+
+    }
+
 }
