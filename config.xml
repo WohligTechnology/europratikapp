@@ -60,7 +60,7 @@
     <param name="android-package" value="nl.xservices.plugins.SocialSharing"/>
   </feature>
   <platform name="android">
-<<<<<<< HEAD
+
     <icon src="resources\android\icon\drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources\android\icon\drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="resources\android\icon\drawable-hdpi-icon.png" density="hdpi"/>
@@ -105,7 +105,7 @@
     <splash src="resources\ios\splash\Default~iphone.png" width="320" height="480"/>
   </platform>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
-=======
+
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
@@ -152,5 +152,5 @@
     <splash src="resources/ios/splash/Default~iphone.png" width="320" height="480"/>
   </platform>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
->>>>>>> 50b399f94330bb5e35172f6a8c547e60c92b6df2
+
 </widget>
