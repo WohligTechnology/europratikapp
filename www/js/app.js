@@ -42,6 +42,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+
+
   .state('app.contact', {
       url: '/contact',
       views: {
@@ -51,6 +53,57 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+
+    .state('app.knowus', {
+        url: '/knowus',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/knowus.html',
+              controller: 'KnowusCtrl'
+          }
+        }
+      })
+
+      .state('app.productcategory', {
+          url: '/productcategory',
+          views: {
+            'menuContent': {
+              templateUrl: 'templates/productcategory.html',
+                controller: 'ProductcategoryCtrl'
+            }
+          }
+        })
+
+        .state('app.productdetail', {
+            url: '/productdetail',
+            views: {
+              'menuContent': {
+                templateUrl: 'templates/productdetail.html',
+                  controller: 'ProductdetailCtrl'
+              }
+            }
+          })
+
+          .state('app.gallery', {
+              url: '/gallery',
+              views: {
+                'menuContent': {
+                  templateUrl: 'templates/gallery.html',
+                    controller: 'GalleryCtrl'
+                }
+              }
+            })
+
+            .state('app.downloads', {
+                url: '/downloads',
+                views: {
+                  'menuContent': {
+                    templateUrl: 'templates/downloads.html',
+                      controller: 'DownloadsCtrl'
+                  }
+                }
+              })
+
     .state('app.product', {
       url: '/product',
       views: {

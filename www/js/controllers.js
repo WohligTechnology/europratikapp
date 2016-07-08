@@ -10,6 +10,22 @@ angular.module('starter.controllers', [])
 .controller('ContactCtrl', function($scope) {
 
 })
+.controller('KnowusCtrl', function($scope) {
+
+})
+.controller('ProductcategoryCtrl', function($scope) {
+
+})
+.controller('ProductdetailCtrl', function($scope) {
+
+})
+.controller('GalleryCtrl', function($scope) {
+
+})
+.controller('DownloadsCtrl', function($scope) {
+
+})
+
 
 .controller('ProductCtrl', function($scope, $stateParams, $ionicModal) {
   $ionicModal.fromTemplateUrl('templates/popup.html', {
@@ -46,7 +62,22 @@ angular.module('starter.controllers', [])
     "image": "img/Egger.jpg"
   }, {
     "image": "img/Emporio.jpg"
-  }];
+  },{
+    "image": "img/Fashion_wall.jpg"
+  },{
+    "image": "img/flos.jpg"
+  },{
+    "image": "img/Forescolor3.jpg"
+  },{
+    "image": "img/Lucento.jpg"
+  },{
+    "image": "img/Neboard2.jpg"
+  },{
+    "image": "img/Matrix.jpg"
+  }
+
+
+];
 
   $scope.products = _.chunk($scope.products, 2);
 

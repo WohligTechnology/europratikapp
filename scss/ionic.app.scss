@@ -1,14 +1,15 @@
 
 
 $light:                           #fff !default;
-$stable:                          #000 !default;
+$stable:                          #969696 !default;
 $positive:                        #387ef5 !default;
 $calm:                            #11c1f3 !default;
 $balanced:                        #33cd5f !default;
 $energized:                       #ffc900 !default;
 $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
-$dark:                            #444 !default;
+$dark:                            #000 !default;
+$heading:                         #f37351 !default;
 $font-family-sans-serif: "Roboto", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
 $font-family-light-sans-serif: "Roboto", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
 
@@ -65,10 +66,16 @@ p.name{
     color: #989898;
 }
 p.headaddr{
-  display: inline-block;
-  border-bottom: 1px solid black;
+  // display: inline-block;
+  // border-bottom: 1px solid black;
+  // text-align: center;
   text-align: center;
-
+  display: block;
+  background-color: #ececec;
+  font-size: 11px;
+  padding: 5px 0px;
+  color: #404040;
+  padding: 2px;
 }
 
 
@@ -157,4 +164,70 @@ color:$assertive;
 
     }
 
+}
+.grad{
+  // background-image: url(../img/bgimg.jpg);
+  background: linear-gradient(to bottom right, #ebe9f9 0%,#d8d0ef 50%,#cec7ec 51%,#575568 100%);
+}
+.know-content{
+  padding: 6px 11px;
+
+}
+.know-content h4{
+  color: $heading;
+}
+.managing h5{
+  border-bottom: 1px solid $heading;
+  display: inline-block;
+  font-weight: 600;
+}
+.assertive{
+  color: $assertive;
+}
+.contact-form .item-input input,.item-input textarea {
+    padding: 7px;
+  }
+
+
+  .img-box {
+      height: 100px;
+      margin: 0 auto;
+      overflow: hidden;
+      width: auto;
+  }
+
+.img-box img{
+  max-width: 100%;
+}
+
+.pno{
+  text-align: center;
+  display: block;
+  padding-top: 3px;
+}
+.productinfo{
+height: 270px;
+margin: 0 auto;
+}
+.productinfo img{
+  max-width: 100%;
+  max-height: 100%;
+
+}
+.prodbg{
+  background-color: #ececec;
+}
+.product-desc{
+  font-weight: 700;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.ln-circle-left{
+  float: left;
+  font-size: 30px;
+}
+.ln-circle-right{
+  float: right;
+  font-size: 30px;
 }
