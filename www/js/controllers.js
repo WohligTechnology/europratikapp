@@ -1,9 +1,30 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
   })
-  .controller('HomeCtrl', function($scope, $ionicModal, $timeout) {
+  .controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices) {
+
+     MyServices.getSlider(function(data) {
+       $scope.sliderdata=data;
+       console.log('$scope.sliderdata',$scope.sliderdata);
+
+     })
+     MyServices.getSlider(function(data) {
+       $scope.sliderdata=data;
+       console.log('$scope.sliderdata',$scope.sliderdata);
+
+     });
+     MyServices.getHomePics(function(data) {
+       $scope.HomePics=data;
+       console.log('$scope.HomePics',$scope.HomePics[0].image2);
+
+     });
+     MyServices.getExclusiveProduct(function(data) {
+       $scope.ExclusiveProduct=data;
+       console.log('$scope.ExclusiveProduct',$scope.ExclusiveProduct);
+
+     })
 
   })
 
@@ -80,5 +101,4 @@ angular.module('starter.controllers', [])
 ];
 
   $scope.products = _.chunk($scope.products, 2);
-
 });
