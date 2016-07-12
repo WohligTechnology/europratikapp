@@ -65,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       })
 
       .state('app.productcategory', {
-          url: '/productcategory',
+          url: '/productcategory/:id/:subid',
           views: {
             'menuContent': {
               templateUrl: 'templates/productcategory.html',
@@ -112,7 +112,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'ProductCtrl'
         }
       }
-    });
+    })
+    .state('app.productselect', {
+            url: '/productselect',
+            views: {
+              'menuContent': {
+                templateUrl: 'templates/productselect.html',
+                  controller: 'ProductSelectCtrl'
+              }
+            }
+          });
+
 
   // .state('app.single', {
   //   url: '/playlists/:playlistId',

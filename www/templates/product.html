@@ -5,10 +5,18 @@
 
   <ion-content>
 
-    <div class="row padding2" ng-repeat="product in products">
+    <!-- <div class="row padding2" ng-repeat="product in products">
       <div class="col padding2" ng-repeat="pro in product">
         <img ng-src="{{pro.image}}" alt="" class="fullimage" ui-sref="app.productcategory">
       </div>
+
+    </div> -->
+
+    <div class="row padding2" ng-repeat="product in brands">
+      <div class="col padding2" ng-repeat="pro in product">
+        <img ng-src="{{pro.image|serverimage}}" alt="" class="fullimage" ui-sref="app.productselect({id:pro.id,subid:0})">
+      </div>
+
     </div>
     <!-- <div class="row">
       <div class="col">

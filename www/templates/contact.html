@@ -64,7 +64,7 @@
 <div class="padding marg">
 
 
-  <form action="#">
+  <form name="">
     <!-- <div class="list">
       <label class="item item-input">
         <input type="text" placeholder="First Name">
@@ -85,27 +85,29 @@
         <textarea placeholder="Comments"></textarea>
       </label>
     </div> -->
-<div class="contact-form">
+<div class="contact-form" >
+
   <div class="list">
-    <label class="item item-input">
-      <input type="text" placeholder="First Name">
+    <label class="item item-input" >
+      <input type="text" placeholder="First Name"  name="fname" required ng-model="formFeedback.fname"  >
     </label>
     <label class="item item-input">
-      <input type="text" placeholder="Last Name">
+      <input type="text" placeholder="Last Name" name="lname" required ng-model="formFeedback.lname">
     </label>
     <label class="item item-input">
-      <input type="text" placeholder="Email"></textarea>
+      <input type="text" placeholder="Email" name="email" type="email" required ng-model="formFeedback.email"></textarea>
     </label>
     <label class="item item-input">
-    <input type="text" placeholder="State"></textarea>
+    <input type="text" placeholder="State" name="state" ng-model="formFeedback.state" ></textarea>
     </label>
     <label class="item item-input">
-      <input type="text" placeholder="Country"></textarea>
+      <input type="text" placeholder="Country" name="country" ng-model="formFeedback.country" ></textarea>
     </label>
     <label class="item item-input">
       <textarea placeholder="Comments"></textarea>
     </label>
   </div>
+
 </div>
 
     <div class="marg">

@@ -82,8 +82,32 @@ angular.module('starter.services', [])
                   url: adminurl + 'getExclusivePdt',
                   method: "GET"
               }).success(callback);
+            },
+            getPopularPdts: function(callback) {
+              // $http.get(adminurl + 'getSlider').success(callback);
+              return $http({
+                  url: adminurl + 'getPopularProduct',
+                  method: "GET"
+              }).success(callback);
+            },
+            getAllProducts: function(callback) {
+              // $http.get(adminurl + 'getSlider').success(callback);
+              return $http({
+                  url: adminurl + 'getAllCategories',
+                  method: "GET"
+              }).success(callback);
+            },
+            getEachCategory: function(id,callback) {
+              // $http.get(adminurl + 'getSlider').success(callback);
+              return $http({
+                  url: adminurl + 'getCategoryById?id=' + id,
+                  method: "GET"
+              }).success(callback);
             }
-          
+            
+
+
+
 
         };
     });
