@@ -10001,3 +10001,28 @@ span.subs {
   .img-hold img {
     max-width: 100%;
     max-height: 100%; }
+
+.wraper {
+  text-align: center;
+  font-weight: 700; }
+
+header .wraper {
+  padding: 10px; }
+
+.sectioncat {
+  border: 0px solid;
+  position: relative;
+  background: #1fa6ae;
+  padding: 45px 20px;
+  border-radius: 4px; }
+
+.sectioncat span {
+  font-size: 40px; }
+
+.series-sec {
+  border: 0px solid;
+  position: relative;
+  background: #ef3434;
+  height: 22px;
+  border-radius: 4px;
+  top: -18px; }
