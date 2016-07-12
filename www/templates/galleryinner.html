@@ -1,0 +1,32 @@
+
+<ion-view class="grad">
+  <ion-nav-title>
+  GALLERY INSIDE
+  </ion-nav-title>
+  <ion-content>
+<div class="row" ng-repeat="data in galleryinside">
+  <div class="col" ng-repeat="gal in data">
+  <div class="img-box">
+      <img ng-src={{gal.image|serverimage}} alt="" class="full-image">
+  </div>
+</div>
+  <!-- <div class="col">
+    <div class="img-box">
+      <img src="img/pc6.jpg" alt="" class="full-image">
+    </div>
+  </div> -->
+</div>
+<!-- <div class="row">
+  <div class="col">
+  <div class="img-box">
+      <img src="img/pc7.jpg" alt="" class="full-image">
+  </div>
+  </div>
+  <div class="col">
+    <div class="img-box">
+      <img src="img/pc8.jpg" alt="" class="full-image">
+    </div>
+  </div>
+</div> -->
+  </ion-content>
+</ion-view>

@@ -12,102 +12,147 @@ var imgpath = adminbase + "/uploads/";
 var foods = [];
 
 angular.module('starter.services', [])
-    .factory('MyServices', function ($http) {
-        return {
-            all: function () {
-                return chats;
-            },
-            remove: function (chat) {
-                chats.splice(chats.indexOf(chat), 1);
-            },
-            get: function (chatId) {
-                for (var i = 0; i < chats.length; i++) {
-                    if (chats[i].id === parseInt(chatId)) {
-                        return chats[i];
-                    }
-                }
-                return null;
-            },
-            signup: function (signup,callback) {
-                return $http({
-                    url: adminurl + 'signup',
-                    method: "POST",
-                    data: {
-                        'username': signup.username,
-                        'email': signup.email,
-                        'password': signup.password,
-                        'dob': signup.dob
-                    }
-                }).success(callback);
-            },
-            signin: function (signin,callback) {
-                return $http({
-                    url: adminurl + 'signin',
-                    method: "POST",
-                    data: {
-                        'username': signin.username,
-                        'password': signin.password
-                    }
-                }).success(callback);
-            },
-            authenticate: function () {
-                return $http({
-                    url: adminurl + 'authenticate',
-                    method: "POST"
-                });
-            },
-            logout: function () {
-                return $http({
-                    url: adminurl + 'logout',
-                    method: "POST"
-                });
-            },
-            getSlider: function(callback) {
-              // $http.get(adminurl + 'getSlider').success(callback);
-              return $http({
-                  url: adminurl + 'getSlider',
-                  method: "GET"
-              }).success(callback);
-            },
-            getHomePics: function(callback) {
-              // $http.get(adminurl + 'getSlider').success(callback);
-              return $http({
-                  url: adminurl + 'getHomePageImage',
-                  method: "GET"
-              }).success(callback);
-            },
-            getExclusiveProduct: function(callback) {
-              // $http.get(adminurl + 'getSlider').success(callback);
-              return $http({
-                  url: adminurl + 'getExclusivePdt',
-                  method: "GET"
-              }).success(callback);
-            },
-            getPopularPdts: function(callback) {
-              // $http.get(adminurl + 'getSlider').success(callback);
-              return $http({
-                  url: adminurl + 'getPopularProduct',
-                  method: "GET"
-              }).success(callback);
-            },
-            getAllProducts: function(callback) {
-              // $http.get(adminurl + 'getSlider').success(callback);
-              return $http({
-                  url: adminurl + 'getAllCategories',
-                  method: "GET"
-              }).success(callback);
-            },
-            getEachCategory: function(id,callback) {
-              // $http.get(adminurl + 'getSlider').success(callback);
-              return $http({
-                  url: adminurl + 'getCategoryById?id=' + id,
-                  method: "GET"
-              }).success(callback);
-            }
-            
+  .factory('MyServices', function($http) {
+    return {
+      all: function() {
+        return chats;
+      },
+      remove: function(chat) {
+        chats.splice(chats.indexOf(chat), 1);
+      },
+      get: function(chatId) {
+        for (var i = 0; i < chats.length; i++) {
+          if (chats[i].id === parseInt(chatId)) {
+            return chats[i];
+          }
+        }
+        return null;
+      },
+      signup: function(signup, callback) {
+        return $http({
+          url: adminurl + 'signup',
+          method: "POST",
+          data: {
+            'username': signup.username,
+            'email': signup.email,
+            'password': signup.password,
+            'dob': signup.dob
+          }
+        }).success(callback);
+      },
+      signin: function(signin, callback) {
+        return $http({
+          url: adminurl + 'signin',
+          method: "POST",
+          data: {
+            'username': signin.username,
+            'password': signin.password
+          }
+        }).success(callback);
+      },
+      authenticate: function() {
+        return $http({
+          url: adminurl + 'authenticate',
+          method: "POST"
+        });
+      },
+      logout: function() {
+        return $http({
+          url: adminurl + 'logout',
+          method: "POST"
+        });
+      },
+      getSlider: function(callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getSlider',
+          method: "GET"
+        }).success(callback);
+      },
+      getHomePics: function(callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getHomePageImage',
+          method: "GET"
+        }).success(callback);
+      },
+      getExclusiveProduct: function(callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getExclusivePdt',
+          method: "GET"
+        }).success(callback);
+      },
+      getPopularPdts: function(callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getPopularProduct',
+          method: "GET"
+        }).success(callback);
+      },
+      getAllProducts: function(callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getAllCategories',
+          method: "GET"
+        }).success(callback);
+      },
+      getEachCategory: function(id, callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getCategoryById?id=' + id,
+          method: "GET"
+        }).success(callback);
+      },
+      contactSubmit: function(formData, callback) {
+        // console.log('form data: ', formData);
+        $http({
+          url: adminurl + 'contactUs',
+          method: 'POST',
+          withCredentials: true,
+          data: formData
+            // data: {
+            //   "email": formData.email,
+            //  "telephone": formData.telephone,
+            //   "comment": formData.comment,
+            //   "fname": formData.fname,
+            //   "lname":formData.lname
+            // }
+        }).success(callback);
+      },
+
+      getGallery: function(callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getAllCategories',
+          method: "GET"
+        }).success(callback);
+      },
+
+      getDownload: function(callback) {
+        // $http.get(adminurl + 'getSlider').success(callback);
+        return $http({
+          url: adminurl + 'getDownload',
+          method: "GET"
+        }).success(callback);
+      },
+      // getGalleryInside: function(id,callback) {
+      //   // $http.get(adminurl + 'getSlider').success(callback);
+      //   return $http({
+      //     url: adminurl + 'getEachProductGallery?id' + id,
+      //     method: "GET"
+      //   }).success(callback);
+      // }
+
+      getGalleryInside: function(id,callback) {
+        $http.get(adminurl + 'getEachProductGallery?id='+id ).success(callback);
+      },
+      getSeries: function(id,callback) {
+        $http.get(adminurl + 'series?id='+id ).success(callback);
+      }
 
 
 
 
-        };
-    });
+    };
+  });

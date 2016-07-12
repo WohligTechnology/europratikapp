@@ -34,27 +34,26 @@
 </div>
 
 </div> -->
-<div class="row">
-<div class="col wraper">
+<!-- <div class="row" ng-repeat="data in AllSeries">
+<div class="col wraper" ng-repeat="series in data">
 <div class="sectioncat" ui-sref="app.productcategory">
-  <span>8300</span>
+  <span>{{series.name}}</span>
 </div>
 <div class="series-sec">
   <p>Series</p>
 </div>
-</div>
-
-<div class="col wraper">
-  <div class="sectioncat" ui-sref="app.productcategory">
-    <span>8400</span>
+</div> -->
+<div class="row" ng-repeat="data in AllSeries">
+  <div class="col wraper" ng-repeat="series in data">
+    <div class="sectioncat" ui-sref="app.productcategory">
+      <span>{{series.name}}</span>
+    </div>
+  <div class="series-sec">
+    <p>Series</p>
   </div>
-<div class="series-sec">
-  <p>Series</p>
+  </div>
 </div>
-</div>
-
-</div>
-<div class="row">
+<!-- <div class="row">
 <div class="col wraper">
 <div class="sectioncat">
   <span>8600</span>
@@ -73,7 +72,7 @@
 </div>
 </div>
 
-</div>
+</div> -->
     </ion-list>
   </ion-content>
 </ion-view>

@@ -33,7 +33,27 @@ angular.module('starter.controllers', ['starter.services'])
 
   })
 
-.controller('ContactCtrl', function($scope) {
+.controller('ContactCtrl', function($scope,MyServices) {
+
+  $scope.formFeedback = {};
+$scope.formComplete = false;
+  $scope.submitForm = function(formValid) {
+    // console.log('form values: ', formData);
+    // console.log('form values: ', formValid);
+    // console.log('form values: ', $scope.formFeedback);
+    if (formValid.$valid) {
+      $scope.formComplete = true;
+      console.log('in if',$scope.formComplete);
+      console.log("$scope.formComplete",'$scope.formComplete');
+      MyServices.contactSubmit($scope.formFeedback, function(data) {
+        // $scope.contact=data;
+        // console.log($scope.contact);
+      });
+    } else {
+
+    }
+  };
+
 
 })
 .controller('KnowusCtrl', function($scope) {
@@ -49,17 +69,55 @@ angular.module('starter.controllers', ['starter.services'])
 
 
 })
-.controller('ProductSelectCtrl', function($scope) {
+.controller('ProductSelectCtrl', function($scope,MyServices,$stateParams) {
+  MyServices.getSeries($stateParams.id,function(data) {
+    $scope.AllSeries=data;
+    $scope.AllSeries = _.chunk($scope.AllSeries, 2);
+    console.log('  $scope.AllSeries',$scope.AllSeries);
+    // $scope.mydata=data.name;
+    // _.each($scope.AllSeries, function(value) {
+    //     console.log(value);
+    //
+    //     value.name = value.name.split(/(\s+)/);
+    //     console.log('value.name', value.name);
+    });
+
+
 
 })
 
 .controller('ProductdetailCtrl', function($scope) {
 
 })
-.controller('GalleryCtrl', function($scope) {
+.controller('GalleryInnerCtrl', function($scope,MyServices,$stateParams) {
+  // $scope.galleryinside='';
+  MyServices.getGalleryInside($stateParams.id,function(data) {
+    $scope.galleryinside=data;
+    console.log('$scope.galleryinside',$scope.galleryinside);
+    $scope.galleryinside = _.chunk($scope.galleryinside, 2);
+
+  });
 
 })
-.controller('DownloadsCtrl', function($scope) {
+.controller('GalleryCtrl', function($scope,MyServices) {
+  MyServices.getGallery(function(data) {
+    $scope.gallery=data;
+    console.log('$scope.gallery',$scope.gallery);
+    $scope.gallery = _.chunk($scope.gallery, 2);
+
+  });
+
+
+
+})
+.controller('DownloadsCtrl', function($scope,MyServices) {
+  MyServices.getDownload(function(data) {
+    $scope.download = data;
+    console.log('$scope.download',$scope.download);
+    $scope.download = _.chunk($scope.download, 2);
+
+  });
+
 
 })
 
