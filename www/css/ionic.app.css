@@ -10013,11 +10013,17 @@ header .wraper {
   border: 0px solid;
   position: relative;
   background: #1fa6ae;
-  padding: 45px 20px;
-  border-radius: 4px; }
+  padding: 25px;
+  border-radius: 4px;
+  min-height: 155px; }
 
 .sectioncat span {
-  font-size: 18px; }
+  font-size: 14px;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%; }
 
 .series-sec {
   border: 0px solid;
