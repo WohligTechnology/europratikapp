@@ -1,28 +1,28 @@
 <ion-view class="grad">
-<ion-nav-title>
-    922
-</ion-nav-title>
+  <ion-nav-title>
+    {{ProductDetails.name}}
+  </ion-nav-title>
   <ion-content>
-<div class="productinfo padding-horizontal">
-<div class="img-hold">
-  <div class="row">
-    <div class="col">
-      <img src="img/pc1.jpg" alt="" class="full-image">
+    <div class="productinfo padding-horizontal">
+      <div class="img-hold">
+        <div class="row">
+          <div class="col">
+            <img ng-src="{{ProductDetails.image|serverimage}}" alt="" class="full-image">
+          </div>
+        </div>
+      </div>
+      <div class="product-desc padding2 ">
+        <i class="ln-circle-left"></i><span>{{ProductDetails.name}}</span><i class="ln-circle-right"></i>
+        <p>{{ProductDetails.size}}</p>
+      </div>
+      <div class="social-icons">
+
+        <button class="button button-block ln-share2 button-balanced" ng-click="shareProduct();">
+          Share
+        </button>
+
+
+      </div>
     </div>
-  </div>
-</div>
-<div class="product-desc padding2 ">
-  <i class="ln-circle-left"></i><span>922</span><i class="ln-circle-right"></i>
-<p>2240x1220x1.5mm</p>
-</div>
-<div class="social-icons">
-
-<button class="button button-block ln-share2 button-balanced">
-  Share
-</button>
-
-
-</div>
-</div>
   </ion-content>
 </ion-view>

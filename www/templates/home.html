@@ -57,7 +57,7 @@
   <div class="col padding2"><a ng-href="{{brands.link}}">
     <img ng-src="{{brands.backImage|serverimage}}" alt="" class="full-image">
   </div>
-  </div>
+</div>
   <!-- <div class="row padding2">
   <div class="col padding2">
     <img src="img/acrylam_tuff5.jpg" alt="" class="full-image">
@@ -68,18 +68,22 @@
     <img src="img/Acrylyte4.jpg" alt="" class="full-image">
   </div>
   </div> -->
-</div>
+
 
 <div class="list">
+  <form name="subForm" >
   <div class="item item-input-inset">
     <label class="item-input-wrapper">
-      <input type="text" placeholder="Email">
-
+      <input type="email" name="email" placeholder="Email" ng-model="subscribe.email"  ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" required >
     </label>
-    <button class="button button-small button-assertive >
+    <button class="button button-small button-assertive"  ng-click="subscribe(subscribe.email);" ng-disabled="subForm.$invalid">
       <span class="subs">Subscribe</span>
     </button>
+    <!-- <p  class="error-msg" ng-show="subForm.email.$error.required && subForm.email.$touched">Please enter Email id</p> -->
+    <p  ng-if="subscribeEmail">Thankyou For Subscribing</p>
+    <p ng-if="checkEmail">This email already exists</p>
   </div>
+</form>
 
 </div>
 

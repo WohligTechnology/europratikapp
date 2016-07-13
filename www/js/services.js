@@ -168,6 +168,16 @@ angular.module('starter.services', [])
             $http.get(adminurl + 'getAllSeries').success(callback);
           },
 
+          subscribe: function(email, callback) {
+            // console.log(mail);
+            $http.get(adminurl + 'getSubscribers?email=' + email).success(callback);
+          },
+
+          getProductDetail: function(id,callback) {
+            $http.get(adminurl + 'getProductDetail?id='+id ).success(callback);
+          },
+
+
 
 
     };

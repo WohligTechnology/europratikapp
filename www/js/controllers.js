@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['starter.services'])
+angular.module('starter.controllers', ['starter.services', 'ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -33,7 +33,32 @@ angular.module('starter.controllers', ['starter.services'])
       $scope.brandlist = data;
       console.log('$scope.brandlist', $scope.brandlist);
 
-    })
+    });
+    $scope.subscribe = {};
+    $scope.subscribe.email = "";
+    $scope.checkEmail = false;
+    $scope.subscribeEmail = false;
+    $scope.subscribe = function(email) {
+
+      MyServices.subscribe(email, function(data) {
+
+        // console.log(data);
+        if (!data.value) {
+          if ($scope.subscribe.email) {
+            $scope.checkEmail = true;
+            $scope.subscribeEmail = false;
+          }
+        } else {
+          $scope.subscribeEmail = true;
+          $scope.checkEmail = false;
+        }
+        //console.log(email);
+        $scope.subscribe.email = "";
+      });
+
+      // $scope.subscribeEmail = data;
+    };
+
 
   })
 
@@ -105,7 +130,17 @@ angular.module('starter.controllers', ['starter.services'])
         $scope.infiniteScroll = false;
       }
     };
+
     $scope.getProductBuCategory();
+
+    $scope.goToDetail = function(productid) {
+      // ui-sref="app.productdetail({id:pro.id})"
+      $state.go("app.productdetail", {
+        catid: $scope.objfilter.id,
+        subcatid: $scope.objfilter.subcat,
+        id: productid
+      })
+    }
 
     // MyServices.getEachSeries($stateParams.id, function(data) {
     //   $scope.series = data.filter.subcategory;
@@ -149,7 +184,26 @@ angular.module('starter.controllers', ['starter.services'])
 
   })
 
-.controller('ProductdetailCtrl', function($scope) {
+.controller('ProductdetailCtrl', function($scope, MyServices, $stateParams, $cordovaSocialSharing, $filter) {
+    MyServices.getProductDetail($stateParams.id, function(data) {
+      $scope.ProductDetails = data;
+      console.log('$scope.ProductDetails', $scope.ProductDetails);
+      //$scope.galleryinside = _.chunk($scope.galleryinside, 2);
+
+    });
+
+    $scope.shareProduct = function() {
+      var image = $filter("serverimage")($scope.ProductDetails.image);
+      console.log(image);
+      $cordovaSocialSharing
+        .share('', '', image, '') // Share via native share sheet
+        .then(function(result) {
+          // Success!
+        }, function(err) {
+          // An error occured. Show a message to the user
+        });
+    }
+
 
   })
   .controller('GalleryInnerCtrl', function($scope, MyServices, $stateParams) {
