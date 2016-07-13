@@ -1,12 +1,11 @@
-<ion-view class="grad">
+<ion-view>
   <ion-nav-title>
-  <img src="img/logo.png" class="logo">
+    <img src="img/logo.png" class="logo">
+  </ion-nav-title>
 
-  </ion-nav-title class="grad">
-
-  <ion-content >
+  <ion-content class="grad">
     <div class="home-slider">
-      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true">
 
         <ion-slide ng-repeat="s in sliderdata">
           <img  ng-src="{{s.image|serverimage}}" alt="" class="full-image">
@@ -18,7 +17,8 @@
           <img src="img/slider3.jpg" alt="" class="full-image">
         </ion-slide> -->
       </ion-slide-box>
-      <div class="latest-arrival">
+    </div>
+<div class="latest-arrival">
   <p class="newarrival">EURO PRATIK NEW ARRIVAL</p>
   <div class="row padding2">
     <div class="col padding2">
@@ -26,6 +26,11 @@
     </div>
   </div>
 </div>
+<!-- <div class="row padding2">
+  <div class="col padding2">
+    <img src="img/decolote-home.jpg" alt="" class="full-image">
+  </div>
+</div> -->
 <div class="products-mg">
   <p class="exclusive">
     EURO PRATIK EXCULSIVE PRODUCTS
@@ -35,6 +40,13 @@
     <div class="col padding2">
       <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
     </div>
+</div>
+
+  <!-- <div class="row padding2">
+      <div class="col padding2">
+      <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
+    </div>
+  </div> -->
 </div>
 <div class="products-mg">
   <p class="popular">
@@ -46,18 +58,30 @@
     <img ng-src="{{brands.backImage|serverimage}}" alt="" class="full-image">
   </div>
   </div>
-  <div class="list">
+  <!-- <div class="row padding2">
+  <div class="col padding2">
+    <img src="img/acrylam_tuff5.jpg" alt="" class="full-image">
+  </div>
+  </div>
+  <div class="row padding2">
+  <div class="col padding2">
+    <img src="img/Acrylyte4.jpg" alt="" class="full-image">
+  </div>
+  </div> -->
+</div>
+
+<div class="list">
   <div class="item item-input-inset">
     <label class="item-input-wrapper">
       <input type="text" placeholder="Email">
 
     </label>
-    <button class="button button-small button-assertive ">
+    <button class="button button-small button-assertive >
       <span class="subs">Subscribe</span>
     </button>
   </div>
 
 </div>
-    </div>
-</ion-content>
+
+  </ion-content>
 </ion-view>

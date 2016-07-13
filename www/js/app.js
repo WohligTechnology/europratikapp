@@ -65,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       })
 
       .state('app.productcategory', {
-          url: '/productcategory',
+          url: '/productcategory/:id/:subid',
           views: {
             'menuContent': {
               templateUrl: 'templates/productcategory.html',

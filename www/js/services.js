@@ -149,8 +149,24 @@ angular.module('starter.services', [])
       },
       getSeries: function(id,callback) {
         $http.get(adminurl + 'series?id='+id ).success(callback);
-      }
+      },
+      getEachSeriesPdts: function(obj, callback) {
+        $http.get(adminurl + 'getProductsByCategory?categoryid=' + obj.id + "&subcategories=" + obj.subcat + "&pageno=" + obj.pagenumber).success(callback);
+      },
+      // getEachSeriesPdts: function(id, code, callback) {
+      //
+      //   $http.get(adminurl + 'getProductsByCategory?categoryid=' + id + '&subcategories=' + code).success(callback);
+      // },
+      getEachSeries: function(id, callback) {
+        // console.log('Code: ', id);
+        // console.log('Code: ', id);
+        $http.get(adminurl + 'getProductsByCategory?categoryid=' + id).success(callback);
+      },
 
+          getAllSeries: function(callback) {
+            // console.log('in all series');
+            $http.get(adminurl + 'getAllSeries').success(callback);
+          },
 
 
 
