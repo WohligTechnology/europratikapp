@@ -1,9 +1,10 @@
-<ion-view>
+<ion-view >
   <ion-nav-title>
-    <img src="img/logo.png" class="logo">
-  </ion-nav-title>
+  <img src="img/logo.png" class="logo">
 
-  <ion-content class="grad">
+  </ion-nav-title class="grad">
+
+  <ion-content >
     <div class="home-slider">
       <ion-slide-box on-slide-changed="slideHasChanged($index)">
 
@@ -17,8 +18,7 @@
           <img src="img/slider3.jpg" alt="" class="full-image">
         </ion-slide> -->
       </ion-slide-box>
-    </div>
-<div class="latest-arrival">
+      <div class="latest-arrival">
   <p class="newarrival">EURO PRATIK NEW ARRIVAL</p>
   <div class="row padding2">
     <div class="col padding2">
@@ -26,11 +26,6 @@
     </div>
   </div>
 </div>
-<!-- <div class="row padding2">
-  <div class="col padding2">
-    <img src="img/decolote-home.jpg" alt="" class="full-image">
-  </div>
-</div> -->
 <div class="products-mg">
   <p class="exclusive">
     EURO PRATIK EXCULSIVE PRODUCTS
@@ -40,13 +35,6 @@
     <div class="col padding2">
       <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
     </div>
-</div>
-
-  <!-- <div class="row padding2">
-      <div class="col padding2">
-      <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
-    </div>
-  </div> -->
 </div>
 <div class="products-mg">
   <p class="popular">
@@ -58,30 +46,18 @@
     <img ng-src="{{brands.backImage|serverimage}}" alt="" class="full-image">
   </div>
   </div>
-  <!-- <div class="row padding2">
-  <div class="col padding2">
-    <img src="img/acrylam_tuff5.jpg" alt="" class="full-image">
-  </div>
-  </div>
-  <div class="row padding2">
-  <div class="col padding2">
-    <img src="img/Acrylyte4.jpg" alt="" class="full-image">
-  </div>
-  </div> -->
-</div>
-
-<div class="list">
+  <div class="list">
   <div class="item item-input-inset">
     <label class="item-input-wrapper">
       <input type="text" placeholder="Email">
 
     </label>
-    <button class="button button-small button-assertive >
+    <button class="button button-small button-assertive ">
       <span class="subs">Subscribe</span>
     </button>
   </div>
 
 </div>
-
-  </ion-content>
+    </div>
+</ion-content>
 </ion-view>
