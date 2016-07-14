@@ -179,6 +179,13 @@ angular.module('starter.services', [])
           getProductDetail: function(id,callback) {
             $http.get(adminurl + 'getProductDetail?id='+id ).success(callback);
           },
+          getNotifications: function(callback) {
+            // $http.get(adminurl + 'getSlider').success(callback);
+            return $http({
+              url: adminurl + 'getNotification',
+              method: "GET"
+            }).success(callback);
+          },
 
 
 

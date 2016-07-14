@@ -45,6 +45,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         // console.log(data);
         if (!data.value) {
           if ($scope.subscribe.email) {
+            console.log($scope.subscribe.email);
             $scope.checkEmail = true;
             $scope.subscribeEmail = false;
           }
@@ -169,7 +170,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
     // ui-sref="app.productcategory({id:series.id})"
 
     $scope.goToCategory = function(series) {
-      console.log(series);
+      console.log('myfun',series);
       $state.go("app.productcategory", {
         id: $stateParams.id,
         subid: series.id
@@ -259,12 +260,20 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
   })
   .controller('NotificationCtrl', function($scope, MyServices, $stateParams) {
     // $scope.galleryinside='';
-    MyServices.getGalleryInside($stateParams.id, function(data) {
-      $scope.galleryinside = data;
-      console.log('$scope.galleryinside', $scope.galleryinside);
-      $scope.galleryinside = _.chunk($scope.galleryinside, 2);
+    // MyServices.getGalleryInside($stateParams.id, function(data) {
+    //   $scope.galleryinside = data;
+    //   console.log('$scope.galleryinside', $scope.galleryinside);
+    //   $scope.galleryinside = _.chunk($scope.galleryinside, 2);
+    //
+    // });
+    MyServices.getNotifications(function(data) {
+      $scope.Notifications = data;
+      console.log('$scope.Notifications', $scope.Notifications);
 
     });
+
+
+
 
   })
   .controller('GalleryCtrl', function($scope, MyServices) {

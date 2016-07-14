@@ -1,17 +1,10 @@
-<ion-view class="grad" title="Notification">
+<ion-view  title="Notification">
 
   <ion-content>
-<div class="noti-box ">
-  <div class="card active-noti">
-<div class="item item-text-wrap">
-  This is a basic Card which contains an item that has wrapping text.
-</div>
-</div>
-  <div class="card ">
-<div class="item item-text-wrap">
-  This is a basic Card which contains an item that has wrapping text.
-</div>
-</div>
+<div class="list">
+  <div class="item item-text-wrap" ng-repeat="data in Notifications">
+      {{data.text}}
+  </div>
 </div>
   </ion-content>
 </ion-view>

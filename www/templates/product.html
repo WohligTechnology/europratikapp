@@ -11,12 +11,10 @@
       </div>
 
     </div> -->
-
     <div class="row padding2" ng-repeat="product in brands">
       <div class="col padding2" ng-repeat="pro in product">
         <img ng-src="{{pro.image|serverimage}}" alt="" class="fullimage" ui-sref="app.productselect({id:pro.id})">
       </div>
-
     </div>
     <!-- <div class="row">
       <div class="col">
