@@ -26,8 +26,8 @@
         <div class="row mb20" ng-repeat="product in seriesProducts">
           <div class="col" ng-repeat="pro in product">
             <div class="img-box">
-              <!-- <img ng-src="{{pro.image|serverimage}}" alt="" class="full-image" ng-click="goToDetail(pro.id);"> -->
-              <img ng-src="{{pro.image|serverimage}}" alt="" class="full-image" ui-sref="app.productdetail({id:pro.id})">
+              <img ng-src="{{pro.image|serverimage}}" alt="" class="full-image" ng-click="goToDetail(pro.id);">
+              <!-- <img ng-src="{{pro.image|serverimage}}" alt="" class="full-image" ui-sref="app.productdetail({id:pro.id})"> -->
             </div>
             <span class="pro text-center">{{pro.name}}</span>
           </div>

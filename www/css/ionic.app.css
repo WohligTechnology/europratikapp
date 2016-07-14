@@ -10035,3 +10035,6 @@ span.subs {
 
 .mb20 {
   margin-bottom: 20px; }
+
+.active-noti {
+  border-left: 3px solid red; }

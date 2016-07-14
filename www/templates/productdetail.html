@@ -7,12 +7,14 @@
       <div class="img-hold">
         <div class="row">
           <div class="col">
-            <img ng-src="{{ProductDetails.image|serverimage}}" alt="" class="full-image">
+            <img ng-src="{{ProductDetails.image|serverimage}}" alt="" class="full-image" ng-click="openModal()" ng-if="ProductDetails.image">
           </div>
         </div>
       </div>
       <div class="product-desc padding2 ">
-        <i class="ln-circle-left"></i><span>{{ProductDetails.name}}</span><i class="ln-circle-right"></i>
+        <i class="ln-circle-left" ng-click="changeProduct(-1);" ng-if="foundIndex>0"></i>
+        <span>{{ProductDetails.name}}</span>
+        <i class="ln-circle-right" ng-click="changeProduct(1);" ng-if="foundIndex<productArr.length-1"></i>
         <p>{{ProductDetails.size}}</p>
       </div>
       <div class="social-icons">

@@ -153,6 +153,9 @@ angular.module('starter.services', [])
       getEachSeriesPdts: function(obj, callback) {
         $http.get(adminurl + 'getProductsByCategory?categoryid=' + obj.id + "&subcategories=" + obj.subcat + "&pageno=" + obj.pagenumber).success(callback);
       },
+      getAllProductsDetail: function(obj, callback) {
+        $http.get(adminurl + 'getProductsByCategory?categoryid=' + obj.id + "&subcategories=" + obj.subcat + "&pageno=" + obj.pagenumber+"&maxrow=100000").success(callback);
+      },
       // getEachSeriesPdts: function(id, code, callback) {
       //
       //   $http.get(adminurl + 'getProductsByCategory?categoryid=' + id + '&subcategories=' + code).success(callback);

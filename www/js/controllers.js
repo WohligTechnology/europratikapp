@@ -88,7 +88,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
   .controller('KnowusCtrl', function($scope) {
 
   })
-  .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices) {
+  .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state) {
 
     // MyServices.getEachCategory($stateParams.id,function(data) {
     //   $scope.category=data;
@@ -184,12 +184,26 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
 
   })
 
-.controller('ProductdetailCtrl', function($scope, MyServices, $stateParams, $cordovaSocialSharing, $filter) {
-    MyServices.getProductDetail($stateParams.id, function(data) {
-      $scope.ProductDetails = data;
-      console.log('$scope.ProductDetails', $scope.ProductDetails);
-      //$scope.galleryinside = _.chunk($scope.galleryinside, 2);
+.controller('ProductdetailCtrl', function($scope, MyServices, $stateParams, $cordovaSocialSharing, $filter, $ionicModal, $ionicLoading, $timeout) {
+    // MyServices.getProductDetail($stateParams.id, function(data) {
+    //   $scope.ProductDetails = data;
+    //   console.log('$scope.ProductDetails', $scope.ProductDetails);
+    //   //$scope.galleryinside = _.chunk($scope.galleryinside, 2);
+    //
+    // });
 
+    $scope.objfilter = {};
+    $scope.objfilter.id = $stateParams.catid;
+    $scope.objfilter.subcat = $stateParams.subcatid;
+    $scope.objfilter.pagenumber = 1;
+    $scope.foundIndex = 0;
+
+    MyServices.getAllProductsDetail($scope.objfilter, function(data) {
+      $scope.productArr = data.data.queryresult;
+      $scope.foundIndex = _.findIndex($scope.productArr, {
+        'id': $stateParams.id
+      });
+      $scope.ProductDetails = $scope.productArr[$scope.foundIndex];
     });
 
     $scope.shareProduct = function() {
@@ -204,9 +218,46 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         });
     }
 
+    $scope.changeProduct = function(val) {
+      $scope.foundIndex = $scope.foundIndex + val;
+      if ($scope.foundIndex >= 0 && $scope.foundIndex < $scope.productArr.length) {
+        $ionicLoading.show({
+          template: 'Please Wait...'
+        })
+        $scope.ProductDetails = {};
+        $timeout(function() {
+          $scope.ProductDetails = $scope.productArr[$scope.foundIndex];
+          $ionicLoading.hide();
+        }, 500);
+      }
+    }
+
+    $ionicModal.fromTemplateUrl('templates/popup.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+      $scope.modalImage = $scope.ProductDetails.image;
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
 
   })
   .controller('GalleryInnerCtrl', function($scope, MyServices, $stateParams) {
+    // $scope.galleryinside='';
+    MyServices.getGalleryInside($stateParams.id, function(data) {
+      $scope.galleryinside = data;
+      console.log('$scope.galleryinside', $scope.galleryinside);
+      $scope.galleryinside = _.chunk($scope.galleryinside, 2);
+
+    });
+
+  })
+  .controller('NotificationCtrl', function($scope, MyServices, $stateParams) {
     // $scope.galleryinside='';
     MyServices.getGalleryInside($stateParams.id, function(data) {
       $scope.galleryinside = data;
