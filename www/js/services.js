@@ -4,6 +4,7 @@
 // var adminurl = adminbase + "index.php/json/";
 // var adminhauth = adminbase + "index.php/hauth/";
 // var adminhauth = adminbase + "index.php/hauth/";
+
 var adminbase = "http://europratik.com/admin";
 var adminurl = adminbase + "/index.php/json/";
 var imgpath = adminbase + "/uploads/";
