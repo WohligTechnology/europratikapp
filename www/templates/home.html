@@ -1,64 +1,67 @@
 <ion-view>
-  <ion-nav-title>
-    <img src="img/logo.png" class="logo">
-  </ion-nav-title>
+    <ion-nav-title>
+        <img src="img/logo.png" class="logo">
+    </ion-nav-title>
 
-  <ion-content class="grad">
-    <div class="home-slider">
-      <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true">
+    <ion-content class="grad">
+        <div class="home-slider">
+            <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true">
 
-        <ion-slide ng-repeat="s in sliderdata">
-          <img  ng-src="{{s.image|serverimage}}" alt="" class="full-image">
-        </ion-slide>
-        <!-- <ion-slide>
+                <ion-slide ng-repeat="s in sliderdata">
+                    <img ng-src="{{s.image|serverimage}}" alt="" class="full-image">
+                </ion-slide>
+                <!-- <ion-slide>
           <img src="img/slider2.jpg" alt="" class="full-image">
         </ion-slide>
         <ion-slide>
           <img src="img/slider3.jpg" alt="" class="full-image">
         </ion-slide> -->
-      </ion-slide-box>
-    </div>
-<div class="latest-arrival">
-  <p class="newarrival">EURO PRATIK NEW ARRIVAL</p>
-  <div class="row padding2">
-    <div class="col padding2">
-  <img ng-src="{{HomePics[0].image2|serverimage}}" alt="" class="full-image" ui-sref="app.productselect({id:'3'})">
-    </div>
-  </div>
-</div>
-<!-- <div class="row padding2">
+            </ion-slide-box>
+        </div>
+        <div class="latest-arrival">
+            <p class="newarrival">EURO PRATIK NEW ARRIVAL</p>
+            <div class="row padding2">
+                <div class="col padding2">
+                    <img ng-src="{{HomePics[0].image2|serverimage}}" alt="" class="full-image" ui-sref="app.productselect({id:'3'})">
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row padding2">
   <div class="col padding2">
     <img src="img/decolote-home.jpg" alt="" class="full-image">
   </div>
 </div> -->
-<div class="products-mg">
-  <p class="exclusive">
-    EURO PRATIK EXCULSIVE PRODUCTS
-  </p>
+        <div class="products-mg">
+            <p class="exclusive">
+                EURO PRATIK EXCULSIVE PRODUCTS
+            </p>
 
-  <div class="row padding2" ng-repeat="data in ExclusiveProduct">
-    <div class="col padding2">
-      <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
-    </div>
-</div>
+            <div class="row padding2" ng-repeat="data in ExclusiveProduct">
+                <div class="col padding2">
+                    <a ng-href="{{data.link}}">
+                        <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
+                    </a>
+                </div>
+            </div>
 
-  <!-- <div class="row padding2">
+            <!-- <div class="row padding2">
       <div class="col padding2">
       <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
     </div>
   </div> -->
-</div>
-<div class="products-mg">
-  <p class="popular">
-    EURO PRATIK POPULAR PRODUCTS
-  </p>
+        </div>
+        <div class="products-mg">
+            <p class="popular">
+                EURO PRATIK POPULAR PRODUCTS
+            </p>
 
-  <div class="row padding2" ng-repeat="brands in brandlist">
-  <div class="col padding2"><a ng-href="{{brands.link}}">
-    <img ng-src="{{brands.backImage|serverimage}}" alt="" class="full-image">
-  </div>
-</div>
-  <!-- <div class="row padding2">
+            <div class="row padding2" ng-repeat="brands in brandlist">
+                <div class="col padding2">
+                    <a ng-href="{{brands.link}}">
+                        <img ng-src="{{brands.backImage|serverimage}}" alt="" class="full-image">
+                </div>
+            </div>
+            <!-- <div class="row padding2">
   <div class="col padding2">
     <img src="img/acrylam_tuff5.jpg" alt="" class="full-image">
   </div>
@@ -70,22 +73,22 @@
   </div> -->
 
 
-<div class="list">
-  <form name="subForm" >
-  <div class="item item-input-inset">
-    <label class="item-input-wrapper">
-      <input type="email" name="email" placeholder="Email" ng-model="subscribe.email"  ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" required >
-    </label>
-    <button class="button button-small button-assertive"  ng-click="subscribe(subscribe.email);" ng-disabled="subForm.$invalid">
-      <span class="subs">Subscribe</span>
-    </button>
-    <!-- <p  class="error-msg" ng-show="subForm.email.$error.required && subForm.email.$touched">Please enter Email id</p> -->
-    <p  ng-if="subscribeEmail">Thankyou For Subscribing</p>
-    <p ng-if="checkEmail">This email already exists</p>
-  </div>
-</form>
+            <div class="list">
+                <form name="subForm">
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="email" name="email" placeholder="Email" ng-model="subscribe.email" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/" required>
+                        </label>
+                        <button class="button button-small button-assertive" ng-click="subscribe(subscribe.email);" ng-disabled="subForm.$invalid">
+                            <span class="subs">Subscribe</span>
+                        </button>
+                        <!-- <p  class="error-msg" ng-show="subForm.email.$error.required && subForm.email.$touched">Please enter Email id</p> -->
+                        <p ng-if="subscribeEmail">Thankyou For Subscribing</p>
+                        <p ng-if="checkEmail">This email already exists</p>
+                    </div>
+                </form>
 
-</div>
+            </div>
 
-  </ion-content>
+    </ion-content>
 </ion-view>

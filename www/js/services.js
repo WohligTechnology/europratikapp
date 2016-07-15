@@ -187,7 +187,12 @@ angular.module('starter.services', [])
             }).success(callback);
           },
 
-
+              getEachSeries: function(id, callback) {
+                // console.log('Code: ', id);
+                // console.log('Code: ', id);
+                $http.get(adminurl + 'getProductsByCategory?categoryid=' + id).success(callback);
+              },
+              
 
 
     };

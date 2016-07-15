@@ -38,6 +38,11 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
 
     });
     MyServices.getExclusiveProduct(function(data) {
+        _.each(data, function(n) {
+            n.link = n.link.split('#/category').join('#/app/productselect');
+            n.link = n.link.substring(0, n.link.length - 2);
+        })
+        console.log(data);
         $scope.ExclusiveProduct = data;
         console.log('$scope.ExclusiveProduct', $scope.ExclusiveProduct);
 
@@ -51,10 +56,11 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
     $scope.subscribe.email = "";
     $scope.checkEmail = false;
     $scope.subscribeEmail = false;
+    globalFunction.loading();
     $scope.subscribe = function(email) {
 
         MyServices.subscribe(email, function(data) {
-          globalFunction.loading();
+            globalFunction.loading();
 
             // console.log(data);
             if (!data.value) {
@@ -70,7 +76,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
             //console.log(email);
             $scope.subscribe.email = "";
         });
-          $ionicLoading.hide();
+        $ionicLoading.hide();
 
         // $scope.subscribeEmail = data;
     };
@@ -86,6 +92,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
             // console.log('form values: ', formData);
             // console.log('form values: ', formValid);
             // console.log('form values: ', $scope.formFeedback);
+            globalFunction.loading();
             if (formValid.$valid) {
                 globalFunction.loading();
                 $scope.formComplete = true;
@@ -104,7 +111,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
     .controller('KnowusCtrl', function($scope) {
 
     })
-    .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state,$ionicLoading) {
+    .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state, $ionicLoading) {
 
         // MyServices.getEachCategory($stateParams.id,function(data) {
         //   $scope.category=data;
@@ -126,10 +133,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         $scope.objfilter.pagenumber = 1;
         $scope.products = [];
         $scope.infiniteScroll = true;
-    globalFunction.loading();
+        globalFunction.loading();
         $scope.getProductBuCategory = function() {
 
             MyServices.getEachSeriesPdts($scope.objfilter, function(data) {
+              $scope.myCatName=data.filter.subcategory[0].name;
+              console.log(data.filter.subcategory[0].name);
                 lastpage = data.data.lastpage;
                 _.each(data.data.queryresult, function(n) {
                     $scope.products.push(n);
@@ -137,6 +146,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
                 $scope.seriesProducts = _.chunk($scope.products, 2);
                 $scope.$broadcast('scroll.infiniteScrollComplete');
                 $ionicLoading.hide();
+                console.log(  "$scope.seriesProducts",  $scope.seriesProducts  );
             });
         };
 
@@ -173,18 +183,52 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         //     $scope.seriesProducts = data.data.queryresult;
         //   });
         //
+        var url = window.location.href;
+        //console.log('current url: ', url);
+        // if (url.match(/series.*/)) {
+        var page = url.substring(url.lastIndexOf('/') + 1);
+
+        MyServices.getEachSeries($stateParams.id, function(data) {
+            $scope.series = data.filter.subcategory;
+
+        });
+        // }
+
+        $scope.eachSeries = function(id, code) {
+            $scope.products = [];
+            console.log('pr after', $scope.products);
+            $scope.objfilter.pagenumber = 1;
+            $scope.objfilter.subcat = code;
+            $stateParams.subid = code;
+            _.each($scope.series, function(n) {
+                if (n.id == code)
+                    n.class = "cat-active";
+                else
+                    n.class = "";
+            });
+            $scope.getProductBuCategory();
+            // console.log('Id: ', id);
+            // console.log('Code: ', code);
+            // MyServices.getEachSeriesPdts(id, code, function(data) {
+            //   // $state.go('category.series', {code: name})
+            //   $scope.isSeries = true;
+            //   $scope.seriesProducts = data.data.queryresult;
+            //   // if($stateParams.isSeries)
+            // });
+        };
+
 
     })
-    .controller('ProductSelectCtrl', function($scope, MyServices, $stateParams, $state,  $ionicLoading) {
+    .controller('ProductSelectCtrl', function($scope, MyServices, $stateParams, $state, $ionicLoading) {
 
+        globalFunction.loading();
         MyServices.getSeries($stateParams.id, function(data) {
-globalFunction.loading();
             $scope.AllSeries = data;
             $scope.AllSeries = _.chunk($scope.AllSeries, 2);
             console.log('  $scope.AllSeries', $scope.AllSeries);
-
+            $ionicLoading.hide();
         });
-        $ionicLoading.hide();
+
 
 
         // ui-sref="app.productcategory({id:series.id})"
@@ -218,7 +262,7 @@ globalFunction.loading();
         $scope.objfilter.subcat = $stateParams.subcatid;
         $scope.objfilter.pagenumber = 1;
         $scope.foundIndex = 0;
-globalFunction.loading();
+        globalFunction.loading();
         MyServices.getAllProductsDetail($scope.objfilter, function(data) {
             $scope.productArr = data.data.queryresult;
             $scope.foundIndex = _.findIndex($scope.productArr, {
@@ -226,7 +270,7 @@ globalFunction.loading();
             });
             $scope.ProductDetails = $scope.productArr[$scope.foundIndex];
         });
-  $ionicLoading.hide();
+        $ionicLoading.hide();
         $scope.shareProduct = function() {
             var image = $filter("serverimage")($scope.ProductDetails.image);
             console.log(image);
@@ -268,7 +312,7 @@ globalFunction.loading();
         };
 
     })
-    .controller('GalleryInnerCtrl', function($scope, MyServices, $stateParams,  $ionicLoading) {
+    .controller('GalleryInnerCtrl', function($scope, MyServices, $stateParams, $ionicLoading) {
         // $scope.galleryinside='';
         globalFunction.loading();
         MyServices.getGalleryInside($stateParams.id, function(data) {
@@ -281,7 +325,7 @@ globalFunction.loading();
         $ionicLoading.hide();
 
     })
-    .controller('NotificationCtrl', function($scope, MyServices, $stateParams,$ionicLoading) {
+    .controller('NotificationCtrl', function($scope, MyServices, $stateParams, $ionicLoading) {
         // $scope.galleryinside='';
         // MyServices.getGalleryInside($stateParams.id, function(data) {
         //   $scope.galleryinside = data;
@@ -302,10 +346,10 @@ globalFunction.loading();
 
 
     })
-    .controller('GalleryCtrl', function($scope, MyServices,  $ionicLoading,$ionicLoading) {
-       globalFunction.loading();
+    .controller('GalleryCtrl', function($scope, MyServices, $ionicLoading, $ionicLoading) {
+        globalFunction.loading();
         MyServices.getGallery(function(data) {
-          $ionicLoading.hide();
+            $ionicLoading.hide();
             $scope.gallery = data;
             console.log('$scope.gallery', $scope.gallery);
             $scope.gallery = _.chunk($scope.gallery, 2);
@@ -316,10 +360,10 @@ globalFunction.loading();
 
 
     })
-    .controller('DownloadsCtrl', function($scope, MyServices,$ionicLoading) {
+    .controller('DownloadsCtrl', function($scope, MyServices, $ionicLoading) {
         globalFunction.loading();
         MyServices.getDownload(function(data) {
-          $ionicLoading.hide();
+            $ionicLoading.hide();
             $scope.download = data;
             console.log('$scope.download', $scope.download);
             $scope.download = _.chunk($scope.download, 2);

@@ -1,6 +1,6 @@
 <ion-view class="grad">
   <ion-nav-title>
-    Product Category
+    {{AllSeries[0][0].categoryname}}
   </ion-nav-title>
   <ion-content>
     <ion-list>
@@ -43,6 +43,7 @@
   <p>Series</p>
 </div>
 </div> -->
+
       <div class="row" ng-repeat="data in AllSeries">
         <div class="col wraper" ng-repeat="series in data">
           <div class="sectioncat" ng-click="goToCategory(series);">
