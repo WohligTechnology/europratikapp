@@ -10009,7 +10009,7 @@ span.subs {
 .sectioncat {
   border: 0px solid;
   position: relative;
-  background: #1fa6ae;
+  background: #d8d8d8;
   padding: 25px;
   border-radius: 4px;
   min-height: 155px; }
@@ -10025,10 +10025,12 @@ span.subs {
 .series-sec {
   border: 0px solid;
   position: relative;
-  background: #ef3434;
-  height: 22px;
+  background: #f65858;
   border-radius: 4px;
-  top: -18px; }
+  top: -37px;
+  padding: 9px 0px; }
+  .series-sec p {
+    margin: 0px; }
 
 .pro {
   display: block; }

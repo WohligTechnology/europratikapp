@@ -271,7 +271,7 @@ margin: 10px 0px 0px 0px;
 .sectioncat{
     border: 0px solid;
 position: relative;
-    background: #1fa6ae;
+    background: #d8d8d8;
   padding: 25px;
     border-radius: 4px;
     min-height: 155px;
@@ -284,13 +284,16 @@ position: relative;
   transform: translate(-50%,-50%);
   width: 75%;
 }
-.series-sec{
-  border: 0px solid;
-position: relative;
-  background: #ef3434;
-height: 22px;
-  border-radius: 4px;
-  top: -18px;
+.series-sec {
+    border: 0px solid;
+    position: relative;
+    background: #f65858;
+    border-radius: 4px;
+    top: -37px;
+    padding: 9px 0px;
+    p{
+      margin: 0px;
+    }
 }
 .pro{
   display: block;
