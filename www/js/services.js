@@ -3,7 +3,6 @@
 //var adminbase = "http://192.168.2.9/webappbackend/";
 // var adminurl = adminbase + "index.php/json/";
 // var adminhauth = adminbase + "index.php/hauth/";
-// var adminhauth = adminbase + "index.php/hauth/";
 
 var adminbase = "http://europratik.com/admin";
 var adminurl = adminbase + "/index.php/json/";

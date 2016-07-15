@@ -5,6 +5,9 @@
   <div class="item item-text-wrap" ng-repeat="data in Notifications">
       {{data.text}}
   </div>
+  <div ng-if="Notifications.length<=0">
+    <h3><b><center>No Notifications</center></b></h3>
+  </div>
 </div>
   </ion-content>
 </ion-view>

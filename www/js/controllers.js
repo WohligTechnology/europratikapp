@@ -293,6 +293,7 @@ globalFunction.loading();
         MyServices.getNotifications(function(data) {
             $ionicLoading.hide();
             $scope.Notifications = data;
+            console.log($scope.Notifications.length);
             console.log('$scope.Notifications', $scope.Notifications);
 
         });
