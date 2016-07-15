@@ -48,6 +48,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
 
     });
     MyServices.getPopularPdts(function(data) {
+      _.each(data, function(n) {
+          n.link = n.link.split('#/category').join('#/app/productselect');
+          n.link = n.link.substring(0, n.link.length - 2);
+      })
+
+
         $scope.brandlist = data;
         console.log('$scope.brandlist', $scope.brandlist);
 
