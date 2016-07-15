@@ -7,7 +7,8 @@
 <div class="row" ng-repeat="data in galleryinside">
   <div class="col" ng-repeat="gal in data">
   <div class="img-box">
-      <img ng-src={{gal.image|serverimage}} alt="" class="full-image">
+      <img ng-src={{gal.image|serverimage}} alt="" class="full-image" ng-click="openModal()"
+      ng-if="gal.image">
   </div>
 </div>
   <!-- <div class="col">

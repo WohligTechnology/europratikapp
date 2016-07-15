@@ -271,6 +271,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         globalFunction.loading();
         MyServices.getAllProductsDetail($scope.objfilter, function(data) {
             $scope.productArr = data.data.queryresult;
+            console.log($scope.productArr);
             $scope.foundIndex = _.findIndex($scope.productArr, {
                 'id': $stateParams.id
             });
@@ -312,23 +313,46 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         $scope.openModal = function() {
             $scope.modalImage = $scope.ProductDetails.image;
             $scope.modal.show();
+            console.log('ProductDetails',$scope.ProductDetails);
         };
         $scope.closeModal = function() {
             $scope.modal.hide();
         };
 
     })
-    .controller('GalleryInnerCtrl', function($scope, MyServices, $stateParams, $ionicLoading) {
+    .controller('GalleryInnerCtrl', function($scope, MyServices, $stateParams, $ionicLoading,  $ionicModal) {
         // $scope.galleryinside='';
         globalFunction.loading();
         MyServices.getGalleryInside($stateParams.id, function(data) {
             globalFunction.loading();
+              $scope.mygalleryinside = data;
             $scope.galleryinside = data;
             console.log('$scope.galleryinside', $scope.galleryinside);
             $scope.galleryinside = _.chunk($scope.galleryinside, 2);
 
         });
         $ionicLoading.hide();
+
+        $ionicModal.fromTemplateUrl('templates/galleryPopup.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
+        $scope.openModal = function() {
+          _.each($scope.mygalleryinside,function(n){
+            console.log(n);
+          // $scope.modalImage={};
+          $scope.modalImage= n.image;
+          console.log($scope.modalImage);
+          })
+            // $scope.modalImage = $scope.galleryinside.image;
+            $scope.modal.show();
+            console.log();
+        };
+        $scope.closeModal = function() {
+            $scope.modal.hide();
+        };
 
     })
     .controller('NotificationCtrl', function($scope, MyServices, $stateParams, $ionicLoading) {
