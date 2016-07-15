@@ -10007,28 +10007,28 @@ span.subs {
   font-weight: 700; }
 
 .sectioncat {
-  border: 0px solid;
+  border-bottom: 6px solid red;
   position: relative;
   background: #d8d8d8;
-  padding: 25px;
+  padding: 15px;
   border-radius: 4px;
   min-height: 155px; }
 
 .sectioncat span {
-  font-size: 14px;
+  font-size: 18px;
   position: absolute;
-  top: 46%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75%; }
 
 .series-sec {
-  border: 0px solid;
   position: relative;
   background: #f65858;
   border-radius: 4px;
   top: -37px;
-  padding: 9px 0px; }
+  padding: 9px 0px;
+  display: none; }
   .series-sec p {
     margin: 0px; }
 
