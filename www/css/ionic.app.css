@@ -9830,10 +9830,10 @@ body {
   margin-top: 15px !important; }
 
 .margin0 {
-  margin: 0px; }
+  margin: 0; }
 
 .padding0 {
-  padding: 0px; }
+  padding: 0; }
 
 .icon-set.display-inline i {
   line-height: 100%;
@@ -9844,7 +9844,7 @@ p.headaddr {
   display: block;
   background-color: #ececec;
   font-size: 11px;
-  padding: 5px 0px;
+  padding: 5px 0;
   color: #404040;
   padding: 2px; }
 
@@ -9875,7 +9875,7 @@ p.headaddr {
   display: block;
   background-color: #ef473a;
   font-size: 14px;
-  padding: 5px 0px;
+  padding: 5px 0;
   color: #fff;
   font-weight: 700; }
 
@@ -9884,7 +9884,7 @@ p.headaddr {
   display: block;
   background-color: #ef473a;
   font-size: 14px;
-  padding: 5px 0px;
+  padding: 5px 0;
   color: #fff;
   font-weight: 700; }
 
@@ -9893,7 +9893,7 @@ p.headaddr {
   display: block;
   background-color: #ef473a;
   font-size: 14px;
-  padding: 5px 0px;
+  padding: 5px 0;
   color: #fff;
   font-weight: 700; }
 
@@ -9930,7 +9930,7 @@ span.subs {
   padding-top: 9px; }
 
 .contact-form .item {
-  border-width: 0px; }
+  border-width: 0; }
 
 .contact-form .item-input {
   padding: 6px 0 5px 1px; }
@@ -9956,7 +9956,8 @@ span.subs {
 .assertive {
   color: #ef473a; }
 
-.contact-form .item-input input, .item-input textarea {
+.contact-form .item-input input,
+.item-input textarea {
   padding: 7px; }
 
 .img-box {
@@ -9975,7 +9976,7 @@ span.subs {
 
 .productinfo {
   margin: 0 auto;
-  margin: 10px 0px 0px 0px; }
+  margin: 10px 0 0; }
 
 .prodbg {
   background-color: #ececec; }
@@ -9994,13 +9995,14 @@ span.subs {
   font-size: 30px; }
 
 .img-hold {
-  height: 300px;
   overflow: hidden;
   display: block;
-  height: 350px; }
+  height: 350px;
+  text-align: center; }
   .img-hold img {
     max-width: 100%;
-    max-height: 100%; }
+    max-height: 100%;
+    width: auto; }
 
 .wraper {
   text-align: center;
@@ -10027,10 +10029,10 @@ span.subs {
   background: #f65858;
   border-radius: 4px;
   top: -37px;
-  padding: 9px 0px;
+  padding: 9px 0;
   display: none; }
   .series-sec p {
-    margin: 0px; }
+    margin: 0; }
 
 .pro {
   display: block; }
@@ -10040,3 +10042,9 @@ span.subs {
 
 .active-noti {
   border-left: 3px solid red; }
+
+.floting {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9; }

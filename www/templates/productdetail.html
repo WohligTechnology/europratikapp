@@ -5,11 +5,7 @@
   <ion-content>
     <div class="productinfo padding-horizontal">
       <div class="img-hold">
-        <div class="row">
-          <div class="col">
-            <img ng-src="{{ProductDetails.image|serverimage}}" alt="" class="full-image" ng-click="openModal()" ng-if="ProductDetails.image">
-          </div>
-        </div>
+        <img ng-src="{{ProductDetails.image|serverimage}}" alt="" class="full-image" ng-click="openModal()" ng-if="ProductDetails.image">
       </div>
       <div class="product-desc padding2 ">
         <i class="ln-circle-left" ng-click="changeProduct(-1);" ng-if="foundIndex>0"></i>
