@@ -9843,13 +9843,16 @@ p.headaddr {
   text-align: center;
   display: block;
   background-color: #ececec;
-  font-size: 11px;
+  font-size: 14px;
   padding: 5px 0;
   color: #404040;
-  padding: 2px; }
+  padding: 6px 0px; }
 
 .bar.bar-stable .title {
   color: white; }
+
+.mt15 {
+  margin-top: 15px; }
 
 .col img {
   width: 100%;
@@ -9996,10 +9999,10 @@ span.subs {
   background: #d8d8d8;
   padding: 15px;
   border-radius: 4px;
-  min-height: 155px; }
+  min-height: 80px; }
 
 .sectioncat span {
-  font-size: 18px;
+  font-size: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10015,6 +10018,12 @@ span.subs {
   display: none; }
   .series-sec p {
     margin: 0; }
+
+.heading-cl {
+  text-align: center;
+  font-size: 15px;
+  text-transform: capitalize;
+  padding: 15px 0px 10px 0px; }
 
 .pro {
   display: block; }
