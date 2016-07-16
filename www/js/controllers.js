@@ -339,13 +339,14 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         }).then(function(modal) {
             $scope.modal = modal;
         });
-        $scope.openModal = function() {
-          _.each($scope.mygalleryinside,function(n){
-            console.log(n);
-          // $scope.modalImage={};
-          $scope.modalImage= n.image;
-          console.log($scope.modalImage);
-          })
+        $scope.openModal = function(data) {
+          console.log(data);
+            $scope.modalImage= data.image;
+                console.log($scope.modalImage);
+          // _.each($scope.mygalleryinside,function(data){
+          // $scope.modalImage= data.image;
+          // console.log($scope.modalImage);
+          // })
             // $scope.modalImage = $scope.galleryinside.image;
             $scope.modal.show();
             console.log();

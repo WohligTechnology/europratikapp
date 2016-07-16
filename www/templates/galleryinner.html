@@ -1,13 +1,13 @@
 
 <ion-view class="grad">
   <ion-nav-title>
-  GALLERY INSIDE
+{{galleryinside[0][0].name}}
   </ion-nav-title>
   <ion-content>
 <div class="row" ng-repeat="data in galleryinside">
   <div class="col" ng-repeat="gal in data">
   <div class="img-box">
-      <img ng-src={{gal.image|serverimage}} alt="" class="full-image" ng-click="openModal()"
+      <img ng-src={{gal.image|serverimage}} alt="" class="full-image" ng-click="openModal(gal)"
       ng-if="gal.image">
   </div>
 </div>
