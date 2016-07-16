@@ -2,10 +2,9 @@
   <ion-content>
     <button class="button button-small button-assertive floting" ng-click="closeModal()">Close</button>
     <div class="repeat">
-      <ion-scroll zooming="true">
+      <ion-scroll zooming="true" overflow-scroll="false">
         <img ng-src="{{modalImage | serverimage}}" alt="" class="full-image" />
       </ion-scroll>
-
     </div>
   </ion-content>
 </ion-modal-view>
