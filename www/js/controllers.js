@@ -226,7 +226,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
 
     })
     .controller('ProductSelectCtrl', function($scope, MyServices, $stateParams, $state, $ionicLoading) {
-
         globalFunction.loading();
         MyServices.getSeries($stateParams.id, function(data) {
             $scope.AllSeries = data;
@@ -244,8 +243,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
             $state.go("app.productcategory", {
                 id: $stateParams.id,
                 subid: series.id
-            })
-        }
+            });
+        };
 
         // MyServices.getAllSeries(function(data) {
         //   $scope.allSeries = data;

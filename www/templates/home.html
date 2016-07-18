@@ -1,40 +1,40 @@
 <ion-view>
-    <ion-nav-title>
-        <img src="img/logo.png" class="logo">
-    </ion-nav-title>
+  <ion-nav-title>
+    <img src="img/logo.png" class="logo">
+  </ion-nav-title>
 
-    <ion-content class="grad">
-        <div class="home-slider">
-            <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true">
-                <ion-slide ng-repeat="s in sliderdata">
-                    <img ng-src="{{s.image|serverimage}}" alt="" class="full-image">
-                </ion-slide>
-            </ion-slide-box>
-        </div>
-        <div class="latest-arrival">
-            <p class="exclusive">EURO PRATIK NEW ARRIVAL</p>
+  <ion-content>
+    <div class="home-slider">
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" auto-play="true" does-continue="true">
+        <ion-slide ng-repeat="s in sliderdata">
+          <img ng-src="{{s.image|serverimage}}" alt="" class="full-image">
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <div class="latest-arrival">
+      <p class="exclusive">EURO PRATIK NEW ARRIVAL</p>
 
-            <div class="padding2">
-              <img ng-src="{{HomePics[0].image2|serverimage}}" alt="" class="full-image" ui-sref="app.productselect({id:'3'})">
-            </div>
-        </div>
-        <div class="products-mg">
-            <p class="exclusive">EURO PRATIK EXCULSIVE PRODUCTS</p>
+      <div class="">
+        <img ng-src="{{HomePics[0].image2|serverimage}}" alt="" class="full-image" ui-sref="app.productselect({id:'3'})">
+      </div>
+    </div>
+    <div class="products-mg">
+      <p class="exclusive">EURO PRATIK EXCULSIVE PRODUCTS</p>
 
-            <div class="padding2" ng-repeat="data in ExclusiveProduct">
-              <a ng-href="{{data.link}}">
-                  <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
-              </a>
-            </div>
-        </div>
-        <div class="products-mg">
-            <p class="exclusive">EURO PRATIK POPULAR PRODUCTS</p>
+      <div class="" ng-repeat="data in ExclusiveProduct">
+        <a ng-href="{{data.link}}">
+          <img ng-src="{{data.image1|serverimage}}" alt="" class="full-image">
+        </a>
+      </div>
+    </div>
+    <div class="products-mg">
+      <p class="exclusive">EURO PRATIK POPULAR PRODUCTS</p>
 
-            <div class="padding2" ng-repeat="brands in brandlist">
-              <a ng-href="{{brands.link}}">
-                  <img ng-src="{{brands.backImage|serverimage}}" alt="" class="full-image">
-                </a>
-            </div>
+      <div class="" ng-repeat="brands in brandlist">
+        <a ng-href="{{brands.link}}">
+          <img ng-src="{{brands.backImage|serverimage}}" alt="" class="full-image">
+        </a>
+      </div>
 
     </ion-content>
-</ion-view>
+  </ion-view>

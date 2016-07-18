@@ -3,84 +3,25 @@
     {{AllSeries[0][0].categoryname}}
   </ion-nav-title>
   <ion-content>
-    <ion-list>
-
-      <header class="heading-cl">
-        Select product category
-      </header>
-      <!-- <div class="row">
-  <div class="col wraper">
-<button class="button button-block button-large button-assertive" ui-sref="app.productcategory">
-        <span>8300</span>
-      </button>
-</div>
-<div class="col wraper">
-  <button class="button button-block button-large button-positive" ui-sref="app.productcategory">
-  <span>8400</span>
-</button>
-</div>
-
-</div>
-<div class="row">
-  <div class="col wraper">
-    <button class="button button-block button-large button-energized" ui-sref="app.productcategory">
-  <span>8600</span>
-</button>
-</div>
-<div class="col wraper">
-  <button class="button button-block button-large button-royal" ui-sref="app.productcategory">
-  <span>8700</span>
-</button>
-</div>
-
-</div> -->
-      <!-- <div class="row" ng-repeat="data in AllSeries">
-<div class="col wraper" ng-repeat="series in data">
-<div class="sectioncat" ui-sref="app.productcategory">
-  <span>{{series.name}}</span>
-</div>
-<div class="series-sec">
-  <p>Series</p>
-</div>
-</div> -->
-
-<div class="pro-list" >
-  <ul class="list" ng-repeat="data in AllSeries">
-    <li class="item" ng-click="goToCategory(series);"  ng-repeat="series in data">
-      {{series.name}}
-    </li>
-</ul>
-</div>
-      <!-- <div class="row" ng-repeat="data in AllSeries">
-        <div class="col wraper" ng-repeat="series in data">
-          <div class="sectioncat" ng-click="goToCategory(series);">
-            <span>{{series.name}}</span>
-          </div>
-          <div class="series-sec">
-            <p>Series</p>
+    <!-- <div class="items bodered-col">
+      <div class="row" ng-repeat="data in AllSeries">
+        <div class="col col-50" ng-click="goToCategory(series);" ng-repeat="series in data">
+          <div class="category-image"></div>
+          <div class="category-name text-center">
+            {{series.name}}
           </div>
         </div>
-      </div> -->
-      <!-- <div class="row">
-<div class="col wraper">
-<div class="sectioncat">
-  <span>8600</span>
-</div>
-<div class="series-sec">
-  <p>Series</p>
-</div>
-</div>
-
-<div class="col wraper">
-  <div class="sectioncat">
-    <span>8700</span>
-  </div>
-<div class="series-sec">
-  <p>Series</p>
-</div>
-</div>
-
-</div> -->
-    </ion-list>
+      </div>
+    </div> -->
+    <div class="items">
+      <div class="row" ng-repeat="data in AllSeries">
+        <div class="col" ng-repeat="series in data" ng-click="goToCategory(series);">
+          <div class="img-box">
+            <img ng-src="{{series.image|serverimage}}" class="full-image" >
+            <div class="pro text-center texter">{{series.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

@@ -1,14 +1,12 @@
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
     <ion-nav-bar class="bar-dark">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+      <ion-nav-back-button></ion-nav-back-button>
       <!-- <ion-nav-title class="text-center" style="left: 0;">
         <img src="img/logo.png" class="logo">
       </ion-nav-title> -->
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -24,17 +22,9 @@
           <i class="icon ln-home2 padding menu-icon"></i>
           Home
         </ion-item>
-        <ion-item menu-close ui-sref-active="actives" ui-sref="app.knowus">
-            <i class="icon ln-clipboard padding menu-icon"></i>
-          Know Us
-      </ion-item>
         <ion-item menu-close ui-sref-active="actives" ui-sref="app.product">
           <i class="icon ln-cart-full padding menu-icon"></i>
           Products
-        </ion-item>
-        <ion-item menu-close ui-sref-active="actives" ui-sref="app.contact">
-          <i class="icon ln-contacts padding menu-icon"></i>
-          Contact Us
         </ion-item>
         <ion-item menu-close ui-sref-active="actives" ui-sref="app.gallery">
           <i class="icon ln-picture padding menu-icon"></i>
@@ -47,13 +37,15 @@
         <ion-item menu-close ui-sref-active="actives" ui-sref="app.notification">
           <i class="icon ln-bell padding menu-icon"></i>
           Notification
-        
         </ion-item>
-
-
-        <!-- <ion-item menu-close href="#/app/playlists">
-          Playlists
-        </ion-item> -->
+        <ion-item menu-close ui-sref-active="actives" ui-sref="app.knowus">
+          <i class="icon ln-clipboard padding menu-icon"></i>
+          Know Us
+        </ion-item>
+        <ion-item menu-close ui-sref-active="actives" ui-sref="app.contact">
+          <i class="icon ln-contacts padding menu-icon"></i>
+          Contact Us
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
