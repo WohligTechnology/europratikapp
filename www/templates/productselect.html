@@ -44,7 +44,14 @@
 </div>
 </div> -->
 
-      <div class="row" ng-repeat="data in AllSeries">
+<div class="pro-list" >
+  <ul class="list" ng-repeat="data in AllSeries">
+    <li class="item" ng-click="goToCategory(series);"  ng-repeat="series in data">
+      {{series.name}}
+    </li>
+</ul>
+</div>
+      <!-- <div class="row" ng-repeat="data in AllSeries">
         <div class="col wraper" ng-repeat="series in data">
           <div class="sectioncat" ng-click="goToCategory(series);">
             <span>{{series.name}}</span>
@@ -53,7 +60,7 @@
             <p>Series</p>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="row">
 <div class="col wraper">
 <div class="sectioncat">

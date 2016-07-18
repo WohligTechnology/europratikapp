@@ -10043,3 +10043,8 @@ span.subs {
 .zoom-pane {
   width: 100%;
   height: 100%; }
+
+.pro-list .list {
+  margin-bottom: 0; }
+  .pro-list .list .item {
+    margin: -2px; }

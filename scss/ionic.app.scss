@@ -283,3 +283,11 @@ span.subs {
   width: 100%;
   height: 100%;
 }
+.pro-list{
+  .list{
+    margin-bottom: 0;
+    .item{
+          margin: -2px;
+    }
+  }
+}
