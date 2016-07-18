@@ -9921,7 +9921,9 @@ span.subs {
   color: #e31e24; }
 
 .logo {
-  padding-top: 9px; }
+  padding-top: 13px;
+  height: 30px;
+  width: auto; }
 
 .contact-form .item {
   border-width: 0; }
