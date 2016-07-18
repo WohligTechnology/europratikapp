@@ -13,15 +13,15 @@
         </div>
       </div>
     </div> -->
-    <div class="items">
-      <div class="row" ng-repeat="data in AllSeries">
-        <div class="col" ng-repeat="series in data" ng-click="goToCategory(series);">
-          <div class="img-box">
-            <img ng-src="{{series.image|serverimage}}" class="full-image" >
-            <div class="pro text-center texter">{{series.name}}</div>
-          </div>
-        </div>
-      </div>
+    <div class="head-image">
+      <img ng-src="" alt="Euro Pratik">
+    </div>
+    <div class="pro-list">
+      <ul class="list" ng-repeat="data in AllSeries">
+        <li class="item" g-click="goToCategory(series);" ng-repeat="series in data">
+        {{series.name}}
+        </li>
+    </ul>
     </div>
   </ion-content>
 </ion-view>

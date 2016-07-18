@@ -307,10 +307,20 @@ span.subs {
   height: 100%;
 }
 .pro-list {
+  margin-top:15px;
   .list {
     margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 50%;
+    margin: 0 auto;
     .item {
-      margin: -2px;
+      margin: 5px 0;
+      border-bottom: 6px solid red;
+      background-color: #dedede;
+      font-size: 17px;
+      text-align: center;
+      padding: 30px;
     }
   }
 }
