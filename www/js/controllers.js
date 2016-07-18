@@ -22,7 +22,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
         console.log('$scope.sliderdata', $scope.sliderdata);
         $ionicSlideBoxDelegate.update();
         $ionicLoading.hide();
-    })
+    });
 
     $scope.slideHasChanged = function(index) {
         if (index == ($scope.sliderdata.length - 1)) {
@@ -275,26 +275,26 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova'])
                 'id': $stateParams.id
             });
             $scope.ProductDetails = $scope.productArr[$scope.foundIndex];
+            $ionicLoading.hide();
         });
-        $ionicLoading.hide();
         $scope.shareProduct = function() {
             var image = $filter("serverimage")($scope.ProductDetails.image);
             console.log(image);
             $cordovaSocialSharing
-                .share('', '', image, '') // Share via native share sheet
+                .share($scope.ProductDetails.name, '', image, '') // Share via native share sheet
                 .then(function(result) {
                     // Success!
                 }, function(err) {
                     // An error occured. Show a message to the user
                 });
-        }
+        };
 
         $scope.changeProduct = function(val) {
             $scope.foundIndex = $scope.foundIndex + val;
             if ($scope.foundIndex >= 0 && $scope.foundIndex < $scope.productArr.length) {
                 $ionicLoading.show({
                     template: 'Please Wait...'
-                })
+                });
                 $scope.ProductDetails = {};
                 $timeout(function() {
                     $scope.ProductDetails = $scope.productArr[$scope.foundIndex];
