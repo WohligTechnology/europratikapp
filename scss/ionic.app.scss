@@ -358,4 +358,7 @@ span.subs {
 .head-image {
     height: 180px;
     overflow: auto;
+    img {
+      width: 100%;
+    }
 }

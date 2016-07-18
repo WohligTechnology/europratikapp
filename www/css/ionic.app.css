@@ -10114,3 +10114,5 @@ span.subs {
 .head-image {
   height: 180px;
   overflow: auto; }
+  .head-image img {
+    width: 100%; }
