@@ -10110,3 +10110,7 @@ span.subs {
 
 .category-name {
   margin-bottom: 5px; }
+
+.head-image {
+  height: 180px;
+  overflow: auto; }
