@@ -1,133 +1,113 @@
-<ion-view >
-  <ion-nav-title>
-    Contact Us
-  </ion-nav-title>
-
+<ion-view view-title="Contact Us">
   <ion-content>
     <ion-list>
-<div class="contact-set padding">
+      <div class="contact-set padding">
 
-<div class="head-text text-center">
-    <p class="headaddr">HEAD OFFICE</p>
-</div>
+        <div class="head-text text-center">
+          <p class="headaddr">HEAD OFFICE</p>
+        </div>
 
-  <div class="contact-address">
-    <div class="marg">
-      <ul>
-        <li>
-          <div class="icon-set display-inline">
-            <i class="ln-map-marker"></i>
+        <div class="contact-address">
+          <div class="marg">
+            <ul>
+              <li>
+                <div class="icon-set display-inline">
+                  <i class="ln-map-marker"></i>
+                </div>
+              </li>
+              <li>
+                <p class="pl15">101, Universal Paradise, Nanda Patkar Road, Vile Parle (East), Mumbai 400 057. Maharashtra, India</p>
+              </li>
+            </ul>
           </div>
-        </li>
-        <li>
-          <p class="pl15">101, Universal Paradise, Nanda Patkar Road,
-        Vile Parle (East), Mumbai 400 057.
-        Maharashtra, India</p>
-        </li>
-      </ul>
-    </div>
 
-    <div class="marg">
-      <ul class="">
-        <li>
-          <div class="icon-set display-inline">
-            <i class="ln-phone2"></i>
+          <div class="marg">
+            <ul class="">
+              <li>
+                <div class="icon-set display-inline">
+                  <i class="ln-phone2"></i>
+                </div>
+              </li>
+              <li >
+                <p class="margin0 pl15">+91-22-2614 6556</p>
+                <p class="margin0 pl15">
+                  +91-22-2614 5955</p>
+              </li>
+            </ul>
           </div>
-        </li>
-        <li >
-          <p class="margin0 pl15">+91-22-2614 6556</p>
-          <p class="margin0 pl15"> +91-22-2614 5955</p>
-        </li>
-      </ul>
-    </div>
 
-    <div class="marg">
-      <ul class="">
-        <li>
-          <div class="icon-set display-inline">
-            <i class="ln-envelope set"></i>
+          <div class="marg">
+            <ul class="">
+              <li>
+                <div class="icon-set display-inline">
+                  <i class="ln-envelope set"></i>
+                </div>
+              </li>
+              <li>
+                <a href="mailto:info@europratik.com" target="_top" class="assertive">
+                  <p class="pl15">info@europratik.com</p>
+                </a>
+              </li>
+            </ul>
           </div>
-        </li>
-        <li>
-            <a href="mailto:info@europratik.com" target="_top" class="assertive"><p class="pl15">info@europratik.com</p></a>
-        </li>
-      </ul>
-    </div>
 
-  </div>
+        </div>
 
+        <div class="head-text text-center mt15">
+          <p class="headaddr msg">SEND US MESSAGE</p>
+        </div>
 
-  <div class="head-text text-center mt15">
-      <p class="headaddr msg">SEND US MESSAGE</p>
-  </div>
+        <div class="padding marg" ng-if="!formComplete">
 
-<div class="padding marg" ng-if="!formComplete" >
+          <form name="feedback">
+            <div class="contact-form">
 
+              <div class="list">
+                <label class="item item-input">
+                  <input type="text" placeholder="First Name*" name="fname" required ng-model="formFeedback.fname">
+                  <p class="error-msg" ng-show="feedback.fname.$error.required && feedback.fname.$touched">Please Enter Your First Name.</p>
+                </label>
+                <label class="item item-input">
+                  <input type="text" placeholder="Last Name" name="lname" ng-model="formFeedback.lname">
+                </label>
+                <label class="item item-input">
+                  <input type="email" placeholder="Email*" name="email" required ng-model="formFeedback.email">
+                  <p class="error-msg" ng-show="feedback.email.$error.required && feedback.email.$touched">Please Enter Your Email Id.</p>
+                </label>
+                <label class="item item-input">
+                  <input type="tel" placeholder="Number*" name="telephone" ng-model="formFeedback.telephone" required>
+                  <p class="error-msg" ng-show="feedback.telephone.$error.required && feedback.telephone.$touched">Please Enter Your Number.</p>
+                </label>
+                <label class="item item-input">
+                  <input type="text" placeholder="City*" name="city" ng-model="formFeedback.city" required>
+                  <p class="error-msg" ng-show="feedback.city.$error.required && feedback.city.$touched">Please Enter Your City.</p>
+                </label>
+                <label class="item item-input">
+                  <input type="text" placeholder="State*" name="state" ng-model="formFeedback.state" required>
+                  <p class="error-msg" ng-show="feedback.state.$error.required && feedback.state.$touched">Please Enter Your State.</p>
+                </label>
+                <label class="item item-input">
+                  <input type="text" placeholder="Country*" name="country" ng-model="formFeedback.country" required>
+                  <p class="error-msg" ng-show="feedback.country.$error.required && feedback.country.$touched">Please Enter Your Country.
+                  </p>
+                </label>
+                <label class="item item-input">
+                  <textarea placeholder="Comments*" name="msg" ng-model="formFeedback.comment" required></textarea>
+                  <p class="error-msg" ng-show="feedback.msg.$error.required && feedback.msg.$touched">Please Enter Your Comment</p>
+                </label>
+              </div>
+            </div>
+            <div class="marg">
+              <button class="button button-full button-assertive" type="Submit" ng-class="{'disabled' : !feedback.$valid}" ng-click="submitForm(feedback)">Submit</button>
+            </div>
+          </form>
 
-  <form name="feedback">
-    <!-- <div class="list">
-      <label class="item item-input">
-        <input type="text" placeholder="First Name">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Last Name">
-      </label>
-      <label class="item item-input">
-        <input type="email" placeholder="Email">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="State">
-      </label>
-      <label class="item item-input">
-        <input type="text" placeholder="Country">
-      </label>
-      <label class="item item-input">
-        <textarea placeholder="Comments"></textarea>
-      </label>
-    </div> -->
-<div class="contact-form" >
+        </div>
 
-  <div class="list">
-    <label class="item item-input" >
-      <input type="text" placeholder="First Name"  name="fname" required ng-model="formFeedback.fname"  >
-      <p class="error-msg" ng-show="feedback.fname.$error.required && feedback.fname.$touched">Please Enter Your First Name.</p>
-    </label>
-    <label class="item item-input">
-      <input type="text" placeholder="Last Name" name="lname" required ng-model="formFeedback.lname">
-      <p class="error-msg" ng-show="feedback.lname.$error.required && feedback.lname.$touched">Please Enter Your Last Name.</p>
-    </label>
-    <label class="item item-input">
-      <input type="email" placeholder="Email" name="email" required ng-model="formFeedback.email">
-      <p class="error-msg" ng-show="feedback.email.$error.required && feedback.email.$touched">Please Enter Your Email Id.</p>
-    </label>
-    <label class="item item-input">
-    <input type="text" placeholder="State" name="state" ng-model="formFeedback.state" required>
-    <p class="error-msg" ng-show="feedback.state.$error.required && feedback.state.$touched">Please Enter Your State.</p>
-    </label>
-    <label class="item item-input">
-      <input type="text" placeholder="Country" name="country" ng-model="formFeedback.country" required>
-      <p  class="error-msg" ng-show="feedback.country.$error.required && feedback.country.$touched">Please Enter Your Country. </p>
-    </label>
-    <label class="item item-input">
-      <textarea placeholder="Comments" name="msg" ng-model="formFeedback.comment" required></textarea>
-      <p  class="error-msg" ng-show="feedback.msg.$error.required && feedback.msg.$touched">Please Enter Your Comment</p>
-    </label>
-  </div>
-
-</div>
-
-    <div class="marg">
-        <button class="button button-full button-assertive" type="Submit" ng-class="{'disabled' : !feedback.$valid}" ng-click="submitForm(feedback)"> Submit</button>
-    </div>
-
-    </form>
-
-  </div>
-
-  <div class="text-center" ng-if="formComplete">
-    <p>Submitted Successfully, Thank You!</p>
-  </div>
-</div>
+        <div class="text-center" ng-if="formComplete">
+          <p>Submitted Successfully, Thank You!</p>
+        </div>
+      </div>
 
     </ion-list>
   </ion-content>
