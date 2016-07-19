@@ -92,6 +92,11 @@
                   </p>
                 </label>
                 <label class="item item-input">
+                  <input type="text" placeholder="Mobile Number*" name="country" ng-model="formFeedback.country" required>
+                  <p class="error-msg" ng-show="feedback.country.$error.required && feedback.country.$touched">Please Enter Your Mobile number.
+                  </p>
+                </label>
+                <label class="item item-input">
                   <textarea placeholder="Comments*" name="msg" ng-model="formFeedback.comment" required></textarea>
                   <p class="error-msg" ng-show="feedback.msg.$error.required && feedback.msg.$touched">Please Enter Your Comment</p>
                 </label>
