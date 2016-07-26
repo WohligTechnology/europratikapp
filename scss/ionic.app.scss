@@ -307,12 +307,11 @@ span.subs {
   height: 100%;
 }
 .pro-list {
-  margin-top:15px;
+  margin-top: 10px;
   .list {
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-    width: 50%;
     margin: 0 auto;
     .item {
       margin: 5px 0;
@@ -358,7 +357,7 @@ span.subs {
 .head-image {
     height: 180px;
     overflow: auto;
-    img {
-      width: 100%;
-    }
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

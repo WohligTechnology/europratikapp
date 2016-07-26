@@ -1,6 +1,6 @@
 <ion-view>
   <ion-nav-title>
-    {{AllSeries[0][0].categoryname}}
+    {{AllSeries[0].categoryname}}
   </ion-nav-title>
   <ion-content>
     <!-- <div class="items bodered-col">
@@ -13,15 +13,13 @@
         </div>
       </div>
     </div> -->
-    <div class="head-image">
-      <img ng-src="{{AllSeries[0][0].image|serverimage}}" alt="Euro Pratik">
-    </div>
+    <div class="head-image" style="background-image: url('{{AllSeries[0].image|serverimage}}');"></div>
     <div class="pro-list">
-      <ul class="list" ng-repeat="data in AllSeries">
-        <li class="item" ng-click="goToCategory(series);" ng-repeat="series in data">
+      <div class="list">
+        <div class="item" ng-click="goToCategory(series);" ng-repeat="series in AllSeries">
         {{series.name}}
-        </li>
-    </ul>
+      </div>
+    </div>
     </div>
   </ion-content>
 </ion-view>

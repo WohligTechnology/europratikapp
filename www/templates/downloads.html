@@ -6,7 +6,7 @@
     <div class="items">
       <div class="row padding2" ng-repeat="getpdf in download">
         <div class="col padding2" ng-repeat="getpd in getpdf">
-          <a ng-href="{{getpd.pdf|serverimage}}" target="_blank"><img ng-src="{{getpd.image|serverimage}}" alt="" class="full-image"></a>
+          <div ng-click="openPDF(getpd.pdf);"><img ng-src="{{getpd.image|serverimage}}" class="full-image"></div>
         </div>
       </div>
     </div>

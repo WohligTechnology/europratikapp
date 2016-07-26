@@ -1,23 +1,23 @@
 function initPushwoosh() {
-    var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
-    if (device.platform == "Android") {
-        console.log("Android");
-        registerPushwooshAndroid();
-    }
+  var pushNotification = cordova.require("pushwoosh-cordova-plugin.PushNotification");
+  if (device.platform == "Android") {
+    console.log("Android");
+    registerPushwooshAndroid();
+  }
 
-    if (device.platform == "iPhone" || device.platform == "iOS") {
-        registerPushwooshIOS();
-    }
+  if (device.platform == "iPhone" || device.platform == "iOS") {
+    registerPushwooshIOS();
+  }
 
-    pushNotification.getLaunchNotification(
-        function(notification) {
-            if (notification != null) {
-                console.log(JSON.stringify(notification));
-            } else {
-                console.log("No launch notification");
-            }
-        }
-    );
+  pushNotification.getLaunchNotification(
+    function(notification) {
+      if (notification != null) {
+        console.log(JSON.stringify(notification));
+      } else {
+        console.log("No launch notification");
+      }
+    }
+  );
 }
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
@@ -58,23 +58,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 
   .state('app.contact', {
-    url: '/contact',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/contact.html',
-        controller: 'ContactCtrl'
+      url: '/contact',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/contact.html',
+          controller: 'ContactCtrl'
+        }
       }
-    }
-  })
-  .state('app.notification', {
-    url: '/notification',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/notification.html',
-        controller: 'NotificationCtrl'
+    })
+    .state('app.notification', {
+      url: '/notification',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/notification.html',
+          controller: 'NotificationCtrl'
+        }
       }
-    }
-  })
+    })
 
   .state('app.knowus', {
     url: '/knowus',
@@ -190,4 +190,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // return "img/logo.png";
     }
   };
-});
+})
+;

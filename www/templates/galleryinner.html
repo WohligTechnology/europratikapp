@@ -1,9 +1,6 @@
-<ion-view >
-  <ion-nav-title>
-    {{galleryinside[0][0].name}}
-  </ion-nav-title>
+<ion-view view-title="{{galleryinside[0].name}}">
   <ion-content>
-    <div class="items">
+    <!-- <div class="items">
       <div class="row" ng-repeat="data in galleryinside">
         <div class="col" ng-repeat="gal in data">
           <div class="img-box">
@@ -11,6 +8,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <ion-gallery ion-gallery-items="photos"></ion-gallery>
+
   </ion-content>
 </ion-view>
