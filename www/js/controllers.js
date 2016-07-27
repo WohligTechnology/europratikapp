@@ -30,7 +30,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
         $ionicSlideBoxDelegate.slide(0);
       }, 4000);
     }
-  }
+  };
 
   MyServices.getHomePics(function(data) {
     $scope.HomePics = data;
@@ -225,17 +225,29 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
 
 
   })
-  .controller('ProductSelectCtrl', function($scope, MyServices, $stateParams, $state, $ionicLoading) {
+  .controller('ProductSelectCtrl', function($scope, MyServices, $stateParams, $state, $ionicLoading, $ionicSlideBoxDelegate) {
     globalFunction.loading();
     MyServices.getSeries($stateParams.id, function(data) {
       $scope.AllSeries = data;
-      // $scope.AllSeries = _.chunk($scope.AllSeries, 2);
+    });
+
+    MyServices.getGalleryInside($stateParams.id, function(data) {
+      $scope.galleryimages = data;
+      $ionicSlideBoxDelegate.update();
       $ionicLoading.hide();
     });
 
+    $scope.slideChanged = function(index) {
+      $scope.slideIndex = index;
+    };
 
-
-    // ui-sref="app.productcategory({id:series.id})"
+    // $scope.slideHasChanged = function(index) {
+    //   if (index == ($scope.galleryimages.length - 1)) {
+    //     $timeout(function() {
+    //       $ionicSlideBoxDelegate.slide(0);
+    //     }, 4000);
+    //   }
+    // };
 
     $scope.goToCategory = function(series) {
       console.log('mySeries', series);
@@ -326,11 +338,11 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
     MyServices.getGalleryInside($stateParams.id, function(data) {
       globalFunction.loading();
       $scope.galleryinside = data;
-      _.each(data, function (n) {
-				$scope.photoObj = {};
-				$scope.photoObj.src = $filter('serverimage')(n.src);
-				$scope.photos.push($scope.photoObj);
-			});
+      _.each(data, function(n) {
+        $scope.photoObj = {};
+        $scope.photoObj.src = $filter('serverimage')(n.src);
+        $scope.photos.push($scope.photoObj);
+      });
     });
     $ionicLoading.hide();
 
@@ -384,7 +396,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
       $scope.gallery = data;
       console.log('$scope.gallery', $scope.gallery);
       $scope.gallery = _.chunk($scope.gallery, 2);
-
     });
     // $ionicLoading.hide();
   })
@@ -435,5 +446,4 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
     console.log('$scope.brands', $scope.brands);
   });
 
-})
-;
+});

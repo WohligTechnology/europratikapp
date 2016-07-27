@@ -3,17 +3,11 @@
     {{AllSeries[0].categoryname}}
   </ion-nav-title>
   <ion-content>
-    <!-- <div class="items bodered-col">
-      <div class="row" ng-repeat="data in AllSeries">
-        <div class="col col-50" ng-click="goToCategory(series);" ng-repeat="series in data">
-          <div class="category-image"></div>
-          <div class="category-name text-center">
-            {{series.name}}
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="head-image" style="background-image: url('{{AllSeries[0].image|serverimage}}');"></div>
+    <ion-slide-box on-slide-changed="slideHasChanged($index)">
+      <ion-slide ng-repeat="s in galleryimages">
+        <div class="head-image" style="background-image: url('{{s.image|serverimage}}');"></div>
+      </ion-slide>
+    </ion-slide-box>
     <div class="pro-list">
       <div class="list">
         <div class="item" ng-click="goToCategory(series);" ng-repeat="series in AllSeries">

@@ -1,9 +1,3 @@
-//var adminbase = "http://wohlig.co.in/webappbackend/";
-// var adminbase = "http://localhost/webappbackend/";
-//var adminbase = "http://192.168.2.9/webappbackend/";
-// var adminurl = adminbase + "index.php/json/";
-// var adminhauth = adminbase + "index.php/hauth/";
-
 var adminbase = "http://europratik.com/admin";
 var adminurl = adminbase + "/index.php/json/";
 var imgpath = adminbase + "/uploads/";
@@ -192,7 +186,7 @@ angular.module('starter.services', [])
                 // console.log('Code: ', id);
                 $http.get(adminurl + 'getProductsByCategory?categoryid=' + id).success(callback);
               },
-              
+
 
 
     };
