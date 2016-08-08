@@ -10116,3 +10116,6 @@ span.subs {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; }
+
+.small-font:before {
+  font-size: 25px !important; }
