@@ -117,8 +117,61 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
   .controller('KnowusCtrl', function($scope) {
 
   })
-  .controller('SearchCtrl', function($scope) {
+  .controller('SearchCtrl', function($scope,MyServices, $location, $ionicLoading, $ionicPopup, $timeout, $state) {
+    $scope.searchresults = [];
 
+    var searchelementcallback = function(data, status) {
+      console.log(data);
+      $scope.searchresults.searchevent = data.data.event;
+      $scope.searchresults.searchgallery = data.data.photo;
+      $scope.searchresults.searchvideogallery = data.data.video;
+      $scope.searchresults.blog = data.data.blog;
+      $scope.searchresults.article = data.data.article;
+      $scope.searchresults.notification = data.data.notification;
+      $scope.searchresults.contacts = data.data.contact;
+      if (data.data.home !== '') {
+        $scope.searchresults.home = [{
+          "name": "Home"
+        }];
+      }
+    };
+    $scope.getsearchelement = function(searchelement) {
+      $timeout(function() {
+        MyServices.searchAll(searchelement, searchelementcallback, function(err) {
+          // $location.url("/access/offline");
+        });
+      }, 2000);
+
+    };
+    $scope.openproduct = function(id) {
+      $state.go("app.productcategory", {
+        id: id
+      });
+    };
+    $scope.opendownloads = function(id) {
+      $state.go("app.download", {
+        id: id
+      });
+    };
+    $scope.opengallery = function(id) {
+      $state.go("app.gallery", {
+        id: id
+      });
+    };
+    $scope.openproductcat = function(id) {
+      $state.go("app.productselect", {
+        id: id
+      });
+    };
+    $scope.openproductdet = function(id) {
+      $state.go("app.productdetail", {
+        id: id
+      })
+    };
+    $scope.clear = function() {
+      $scope.search.text = "";
+      $scope.searchresults = [];
+    };
   })
   .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state, $ionicLoading) {
 
