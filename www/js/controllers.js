@@ -117,6 +117,9 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
   .controller('KnowusCtrl', function($scope) {
 
   })
+  .controller('SearchCtrl', function($scope) {
+
+  })
   .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state, $ionicLoading) {
 
     // MyServices.getEachCategory($stateParams.id,function(data) {
@@ -241,6 +244,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
       $scope.slideIndex = index;
     };
 
+
     // $scope.slideHasChanged = function(index) {
     //   if (index == ($scope.galleryimages.length - 1)) {
     //     $timeout(function() {
@@ -261,7 +265,11 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
     //   $scope.allSeries = data;
     //   console.log(data);
     // });
-
+    MyServices.getEachCategory($stateParams.id, function(data) {
+      $scope.category = data;
+      // console.log('Category: ', $scope.category);
+      // console.log('State: ', $stateParams.id);
+    });
 
   })
 

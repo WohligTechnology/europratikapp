@@ -186,6 +186,10 @@ angular.module('starter.services', [])
                 // console.log('Code: ', id);
                 $http.get(adminurl + 'getProductsByCategory?categoryid=' + id).success(callback);
               },
+              getEachCategory: function(id, callback) {
+                // console.log('nsId: ', id);
+                $http.get(adminurl + 'getCategoryById?id=' + id).success(callback);
+              },
 
 
 

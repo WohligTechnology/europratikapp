@@ -1,0 +1,13 @@
+<ion-view  title="Search">
+  <ion-content>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" ng-model="search.text" placeholder="Search" ng-change="getsearchelement(search.text)">
+      </label>
+      <button class="button button-clear" ng-click="clear()">
+        Cancel
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
