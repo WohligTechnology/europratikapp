@@ -1,16 +1,8 @@
 <ion-view view-title="{{galleryinside[0].name}}">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
   <ion-content>
-    <!-- <div class="items">
-      <div class="row" ng-repeat="data in galleryinside">
-        <div class="col" ng-repeat="gal in data">
-          <div class="img-box">
-            <img ng-src={{gal.image|serverimage}} alt="" class="full-image" ng-click="openModal(gal)" ng-if="gal.image">
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <ion-gallery ion-gallery-items="photos"></ion-gallery>
-
   </ion-content>
 </ion-view>

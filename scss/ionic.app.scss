@@ -361,9 +361,14 @@ span.subs {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .button-clear.button-clear {
     border-color: transparent;
     background: #c2c2c2;
     box-shadow: none;
     color: rgb(255, 255, 255);
+}
+.small-font:before {
+    font-size: 25px !important;
+
 }

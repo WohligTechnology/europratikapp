@@ -1,38 +1,14 @@
-<ion-view >
-  <ion-nav-title>
-    {{myCatName}}
-  </ion-nav-title>
+<ion-view view-title="{{myCatName}}">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+  </ion-nav-buttons>
   <ion-content>
     <ion-list>
-      <!--
-      <div class="">
-        <span ng-repeat="s in series" ng-if="series.length!=1">
-          <a class="{{s.class}} series-name btn btn-category-inverse" ng-click="eachSeries(category.id, s.id)">{{s.name}}</a>
-        </span>
-      </div> -->
-
-      <!-- <div class="list">
-
-        <label class="item item-input item-select">
-          <div class="input-label">
-            Selected Series
-            {{category}}
-
-          </div
-          <select>
-            <option selected>8300</option>
-            <option>8400</option>
-            <option>8600</option>
-            <option>8700</option>
-          </select>
-        </label>
-      </div> -->
-
       <div class="items">
         <div class="row" ng-repeat="product in seriesProducts">
           <div class="col" ng-repeat="pro in product" ng-click="goToDetail(pro.id);">
             <div class="img-box">
-              <img ng-src="{{pro.image|serverimage}}" alt="" class="full-image" >
+              <img ng-src="{{pro.image|serverimage}}" alt="" class="full-image">
               <div class="pro text-center texter">{{pro.name}}</div>
             </div>
           </div>

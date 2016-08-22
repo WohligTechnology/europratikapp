@@ -10122,3 +10122,6 @@ span.subs {
   background: #c2c2c2;
   box-shadow: none;
   color: white; }
+
+.small-font:before {
+  font-size: 25px !important; }
