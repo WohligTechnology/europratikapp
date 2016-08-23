@@ -11,6 +11,7 @@
     </div>
     <div class="row">
       <div class="search-result" ng-repeat="pr in products">
+        <div class="pro-list" ui-sref="goToDetail(pro.id)">
             <div class="products">
               <div class="pro-img">
                 <img ng-src="{{pr.image|serverimage}}" alt="Products" class="full-image">
