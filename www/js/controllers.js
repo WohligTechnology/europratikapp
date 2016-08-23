@@ -117,57 +117,53 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
   .controller('KnowusCtrl', function($scope) {
 
   })
-  .controller('SearchCtrl', function($scope,MyServices, $location, $ionicLoading, $ionicPopup, $timeout, $state) {
+  .controller('SearchCtrl', function($scope,MyServices, $location, $ionicLoading, $ionicPopup, $timeout, $state,$stateParams) {
     $scope.searchresults = [];
+    $scope.search = {};
+    $scope.search.text = "";
+    $scope.name = "";
+    $scope.products = [];
+    //$scope.images = [];
+    $scope.categoryid = $stateParams.id;
+    $scope.pagenumber = 1;
+    var lastpage = 1;
+    $scope.objfilter = {};
+    $scope.objfilter.name = $stateParams.name;
+    $scope.objfilter.pageno = 1;
+    $scope.pages = [1]
+    $scope.noProducts = false;
 
-    var searchelementcallback = function(data, status) {
-      console.log(data);
-      $scope.searchresults.searchevent = data.data.event;
-      $scope.searchresults.searchgallery = data.data.photo;
-      $scope.searchresults.searchvideogallery = data.data.video;
-      $scope.searchresults.blog = data.data.blog;
-      $scope.searchresults.article = data.data.article;
-      $scope.searchresults.notification = data.data.notification;
-      $scope.searchresults.contacts = data.data.contact;
-      if (data.data.home !== '') {
-        $scope.searchresults.home = [{
-          "name": "Home"
-        }];
+    MyServices.getsearchresult($scope.objfilter, function(data) {
+      $scope.products = data.queryresult;
+      console.log('productData: ', $scope.products);
+      console.log('total: ', data.totalvalues);
+      if(data.totalvalues == 0) {
+        $scope.noProducts = true;
       }
-    };
-    $scope.getsearchelement = function(searchelement) {
-      $timeout(function() {
-        MyServices.searchAll(searchelement, searchelementcallback, function(err) {
-          // $location.url("/access/offline");
-        });
-      }, 2000);
+      lastpage = data.lastpage;
 
-    };
-    $scope.openproduct = function(id) {
-      $state.go("app.productcategory", {
-        id: id
+    });
+
+    $scope.getSearchByCat = function () {
+      MyServices.getsearchresult($scope.objfilter, function(data) {
+        $scope.products = data.queryresult;
+        console.log('productData: ', $scope.products);
+        console.log('pages:', $scope.pages);
+        // lastpage = data.lastpage;
+        // _.each(data.queryresult, function(n) {
+        //   $scope.products.push(n);
+        // });
       });
     };
-    $scope.opendownloads = function(id) {
-      $state.go("app.download", {
-        id: id
-      });
-    };
-    $scope.opengallery = function(id) {
-      $state.go("app.gallery", {
-        id: id
-      });
-    };
-    $scope.openproductcat = function(id) {
-      $state.go("app.productselect", {
-        id: id
-      });
-    };
-    $scope.openproductdet = function(id) {
+
+    $scope.goToDetail = function(productid) {
+      // ui-sref="app.productdetail({id:pro.id})"
       $state.go("app.productdetail", {
-        id: id
+        catid: $scope.objfilter.id,
+        subcatid: $scope.objfilter.subcat,
+        id: productid
       })
-    };
+    }
     $scope.clear = function() {
       $scope.search.text = "";
       $scope.searchresults = [];

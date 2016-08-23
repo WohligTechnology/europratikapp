@@ -141,14 +141,9 @@ angular.module('starter.services', [])
       getGalleryInside: function(id,callback) {
         $http.get(adminurl + 'getEachProductGallery?id='+id ).success(callback);
       },
-      searchAll: function(search, callback, errCallback) {
-        return $http({
-          url: adminurl + 'config/searchData',
-          method: "POST",
-          data: {
-            'search': search
-          }
-        }).success(callback).error(errCallback);
+      getsearchresult: function(obj, callback) {
+        // console.log('Name:', name);
+        $http.get(adminurl + 'searchByCategory?name=' + obj.name + '&pageno='+obj.pageno).success(callback);
       },
       getSeries: function(id,callback) {
         $http.get(adminurl + 'series?id='+id ).success(callback);
