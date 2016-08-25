@@ -132,6 +132,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
     $scope.objfilter.pageno = 1;
     $scope.pages = [1]
     $scope.noProducts = false;
+      globalFunction.loading();
 
     MyServices.getsearchresult($scope.objfilter, function(data) {
       $scope.products = data.queryresult;
@@ -156,11 +157,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
       });
     };
 
-    $scope.goToDetail = function(productid) {
+    $scope.goToDetail = function(cat,subcat,productid) {
+
       // ui-sref="app.productdetail({id:pro.id})"
       $state.go("app.productdetail", {
-        catid: $scope.objfilter.id,
-        subcatid: $scope.objfilter.subcat,
+        catid: cat,
+        subcatid: subcat,
         id: productid
       })
     }

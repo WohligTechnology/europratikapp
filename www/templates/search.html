@@ -9,18 +9,21 @@
         Cancel
       </button>
     </div>
-    <div class="row">
-      <div class="search-result" ng-repeat="pr in products">
-        <div class="pro-list" ui-sref="goToDetail(pro.id)">
-            <div class="products">
-              <div class="pro-img">
-                <img ng-src="{{pr.image|serverimage}}" alt="Products" class="full-image">
-              </div>
-
-            </div>
+    <div class="row " ng-repeat="pr in products">
+<div class="col" >
+  <div class="search-result" >
+    <div class="pro-list" ng-click="goToDetail(pr.categoryid,pr.subcategoryid,pr.id)">
+        <div class="products">
+          <div class="pro-img">
+            <img ng-src="{{pr.image|serverimage}}" alt="Products" class="full-image">
+          </div>
 
         </div>
-      </div>
+
+    </div>
+  </div>
+</div>
+
       <div ng-if="products == 'noProducts'" class="showerror text-center">
         <h3 class="text-center">No Product Found!</h3>
       </div>
