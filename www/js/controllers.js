@@ -34,7 +34,13 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
 
   MyServices.getHomePics(function(data) {
     $scope.HomePics = data;
-    console.log('$scope.HomePics', $scope.HomePics[0].image2);
+    console.log('$scope.HomePics', $scope.HomePics[0].image1);
+
+  });
+  MyServices.getArrival(function(data) {
+      $scope.arrivallist = data;
+      var linkArr = data[0].link.split("/");
+      $scope.arrivallist[0].link = linkArr[2];
 
   });
   MyServices.getExclusiveProduct(function(data) {

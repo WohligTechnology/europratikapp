@@ -91,6 +91,9 @@ angular.module('starter.services', [])
           method: "GET"
         }).success(callback);
       },
+      getArrival: function(callback) {
+        $http.get(adminurl + 'getAllArrival').success(callback);
+      },
       getEachCategory: function(id, callback) {
         // $http.get(adminurl + 'getSlider').success(callback);
         return $http({
