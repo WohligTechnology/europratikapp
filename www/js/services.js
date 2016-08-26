@@ -91,6 +91,9 @@ angular.module('starter.services', [])
           method: "GET"
         }).success(callback);
       },
+      getArrival: function(callback) {
+        $http.get(adminurl + 'getAllArrival').success(callback);
+      },
       getEachCategory: function(id, callback) {
         // $http.get(adminurl + 'getSlider').success(callback);
         return $http({
@@ -141,6 +144,10 @@ angular.module('starter.services', [])
       getGalleryInside: function(id,callback) {
         $http.get(adminurl + 'getEachProductGallery?id='+id ).success(callback);
       },
+      getsearchresult: function(obj, callback) {
+        // console.log('Name:', name);
+        $http.get(adminurl + 'searchByCategory?name=' + obj.name + '&pageno='+obj.pageno).success(callback);
+      },
       getSeries: function(id,callback) {
         $http.get(adminurl + 'series?id='+id ).success(callback);
       },
@@ -185,6 +192,10 @@ angular.module('starter.services', [])
                 // console.log('Code: ', id);
                 // console.log('Code: ', id);
                 $http.get(adminurl + 'getProductsByCategory?categoryid=' + id).success(callback);
+              },
+              getEachCategory: function(id, callback) {
+                // console.log('nsId: ', id);
+                $http.get(adminurl + 'getCategoryById?id=' + id).success(callback);
               },
 
 

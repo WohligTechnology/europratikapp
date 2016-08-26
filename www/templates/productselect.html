@@ -13,6 +13,15 @@
         <div class="item" ng-click="goToCategory(series);" ng-repeat="series in AllSeries">
         {{series.name}}
       </div>
+      <div class="no-cat-imgholder" ng-show="category.id==9 && category.id!=23">
+        <img src="img/egger.jpg" alt="" class="full-image">
+      </div>
+      <div class="no-cat-imgholder " ng-show="category.id==23 && category.id!=9">
+        <img src="img/solid-wood.jpg" alt="" class="full-image">
+      </div>
+      <div class="no-cat-imgholder" ng-show="category.id==24 && category.id!=9">
+        <img src="img/glue.jpg" alt="" class=" full-image">
+      </div>
     </div>
     </div>
   </ion-content>
