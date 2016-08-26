@@ -292,7 +292,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
       var image = $filter("serverimage")($scope.ProductDetails.image);
       console.log(image);
       $cordovaSocialSharing
-        .share($scope.ProductDetails.name, '', image, '') // Share via native share sheet
+        .share(null, null, image, null) // Share via native share sheet
         .then(function(result) {
           // Success!
         }, function(err) {
@@ -410,12 +410,13 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
   });
 
   var options = "location=no,toolbar=yes";
-  var target = "_blank";
+  var target = "_system";
   var url = "";
 
   $scope.openPDF = function(link) {
     url = $filter('serverimage')(link);
-    var ref = cordova.InAppBrowser.open(url, target, options);
+    console.log(url);
+    var ref = cordova.InAppBrowser.open(encodeURI(url), target, options);
   };
 
 

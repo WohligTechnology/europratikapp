@@ -10061,7 +10061,7 @@ span.subs {
 
 .floting {
   position: absolute;
-  top: 0;
+  top: 20px;
   right: 0;
   z-index: 9; }
 
