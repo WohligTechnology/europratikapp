@@ -10062,7 +10062,7 @@ span.subs {
 .floting {
   position: absolute;
   top: 20px;
-  right: 0;
+  right: 10px;
   z-index: 9; }
 
 .zoom-pane {
@@ -10116,6 +10116,12 @@ span.subs {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat; }
+
+.button-clear.button-clear {
+  border-color: transparent;
+  background: #c2c2c2;
+  box-shadow: none;
+  color: white; }
 
 .small-font:before {
   font-size: 25px !important; }
