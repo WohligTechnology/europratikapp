@@ -298,13 +298,8 @@ span.subs {
 }
 .floting {
   position: absolute;
-<<<<<<< HEAD
-  top: 20px;
-  right: 0;
-=======
   top: 7px;
   right: 7px;
->>>>>>> origin/master
   z-index: 9;
 }
 .zoom-pane {
@@ -360,20 +355,18 @@ span.subs {
   margin-bottom: 5px;
 }
 .head-image {
-    height: 180px;
-    overflow: auto;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  height: 180px;
+  overflow: auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
 .button-clear.button-clear {
-    border-color: transparent;
-    background: #c2c2c2;
-    box-shadow: none;
-    color: rgb(255, 255, 255);
+  border-color: transparent;
+  background: #c2c2c2;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
 }
 .small-font:before {
-    font-size: 25px !important;
-
+  font-size: 25px !important;
 }
