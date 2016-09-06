@@ -33,14 +33,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
   };
 
   MyServices.getHomePics(function(data) {
-    $scope.HomePics = data;
-    console.log('$scope.HomePics', $scope.HomePics[0].image1);
-
-  });
-  MyServices.getArrival(function(data) {
-      $scope.arrivallist = data;
-      var linkArr = data[0].link.split("/");
-      $scope.arrivallist[0].link = linkArr[2];
+    $scope.HomePics = data.banner;
+    console.log('$scope.HomePics', $scope.HomePics[0].image2);
 
   });
   MyServices.getExclusiveProduct(function(data) {
@@ -122,60 +116,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
   })
   .controller('KnowusCtrl', function($scope) {
 
-  })
-  .controller('SearchCtrl', function($scope,MyServices, $location, $ionicLoading, $ionicPopup, $timeout, $state,$stateParams) {
-    $scope.searchresults = [];
-    $scope.search = {};
-    $scope.search.text = "";
-    $scope.name = "";
-    $scope.products = [];
-    //$scope.images = [];
-    $scope.categoryid = $stateParams.id;
-    $scope.pagenumber = 1;
-    var lastpage = 1;
-    $scope.objfilter = {};
-    $scope.objfilter.name = $stateParams.name;
-    $scope.objfilter.pageno = 1;
-    $scope.pages = [1]
-    $scope.noProducts = false;
-      globalFunction.loading();
-
-    MyServices.getsearchresult($scope.objfilter, function(data) {
-      $scope.products = data.queryresult;
-      console.log('productData: ', $scope.products);
-      console.log('total: ', data.totalvalues);
-      if(data.totalvalues == 0) {
-        $scope.noProducts = true;
-      }
-      lastpage = data.lastpage;
-
-    });
-
-    $scope.getSearchByCat = function () {
-      MyServices.getsearchresult($scope.objfilter, function(data) {
-        $scope.products = data.queryresult;
-        console.log('productData: ', $scope.products);
-        console.log('pages:', $scope.pages);
-        // lastpage = data.lastpage;
-        // _.each(data.queryresult, function(n) {
-        //   $scope.products.push(n);
-        // });
-      });
-    };
-
-    $scope.goToDetail = function(cat,subcat,productid) {
-
-      // ui-sref="app.productdetail({id:pro.id})"
-      $state.go("app.productdetail", {
-        catid: cat,
-        subcatid: subcat,
-        id: productid
-      })
-    }
-    $scope.clear = function() {
-      $scope.search.text = "";
-      $scope.searchresults = [];
-    };
   })
   .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state, $ionicLoading) {
 
@@ -301,7 +241,6 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
       $scope.slideIndex = index;
     };
 
-
     // $scope.slideHasChanged = function(index) {
     //   if (index == ($scope.galleryimages.length - 1)) {
     //     $timeout(function() {
@@ -322,11 +261,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
     //   $scope.allSeries = data;
     //   console.log(data);
     // });
-    MyServices.getEachCategory($stateParams.id, function(data) {
-      $scope.category = data;
-      // console.log('Category: ', $scope.category);
-      // console.log('State: ', $stateParams.id);
-    });
+
 
   })
 
@@ -357,7 +292,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
       var image = $filter("serverimage")($scope.ProductDetails.image);
       console.log(image);
       $cordovaSocialSharing
-        .share(null, null, image, null) // Share via native share sheet
+        .share($scope.ProductDetails.name, '', image, '') // Share via native share sheet
         .then(function(result) {
           // Success!
         }, function(err) {
@@ -475,13 +410,12 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
   });
 
   var options = "location=no,toolbar=yes";
-  var target = "_system";
+  var target = "_blank";
   var url = "";
 
   $scope.openPDF = function(link) {
     url = $filter('serverimage')(link);
-    console.log(url);
-    var ref = cordova.InAppBrowser.open(encodeURI(url), target, options);
+    var ref = cordova.InAppBrowser.open(url, target, options);
   };
 
 
