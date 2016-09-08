@@ -8,12 +8,16 @@
         <div class="head-image" style="background-image: url('{{s.image|serverimage}}');"></div>
       </ion-slide>
     </ion-slide-box>
-    <div class="pro-list">
+    <div  ng-if="AllSeries.length ==0">
+                          <img src="{{category.defaultimage | serverimage}}" alt="" class="img-responsive">
+                        </div>
+    <div class="pro-list" ng-if="AllSeries.length !=0">
       <div class="list">
         <div class="item" ng-click="goToCategory(series);" ng-repeat="series in AllSeries">
         {{series.name}}
       </div>
-      <div class="no-cat-imgholder" ng-show="category.id==9 && category.id!=23">
+
+      <!-- <div class="no-cat-imgholder" ng-show="category.id==9 && category.id!=23">
         <img src="img/egger.jpg" alt="" class="full-image">
       </div>
       <div class="no-cat-imgholder " ng-show="category.id==23 && category.id!=9">
@@ -27,7 +31,7 @@
       </div>
       <div class="no-cat-imgholder" ng-show="category.id==27 && category.id!=9">
         <img src="img/EP-plywood.jpg" alt="" class="full-image">
-      </div>
+      </div> -->
     </div>
     </div>
   </ion-content>

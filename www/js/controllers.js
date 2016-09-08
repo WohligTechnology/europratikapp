@@ -147,6 +147,8 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
         console.log(data.filter.subcategory[0].name);
         lastpage = data.data.lastpage;
         _.each(data.data.queryresult, function(n) {
+              console.log("%%%%%%%%%%");
+              console.log("Products details");
           $scope.products.push(n);
         });
         $scope.seriesProducts = _.chunk($scope.products, 2);
@@ -225,11 +227,21 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
 
 
   })
-  .controller('ProductSelectCtrl', function($scope, MyServices, $stateParams, $state, $ionicLoading, $ionicSlideBoxDelegate) {
+  .controller('ProductSelectCtrl', function($scope, MyServices, $stateParams, $state, $ionicLoading, $ionicSlideBoxDelegate,$timeout
+
+) {
     globalFunction.loading();
     MyServices.getSeries($stateParams.id, function(data) {
       $scope.AllSeries = data;
     });
+    $timeout(function () {
+      MyServices.getEachCategory($stateParams.id, function(data) {
+        console.log("$$$$$$$$$");
+        $scope.category = data;
+        // console.log('Category: ', $scope.category);
+        // console.log('State: ', $stateParams.id);
+      });
+    }, 3000);
 
     MyServices.getGalleryInside($stateParams.id, function(data) {
       $scope.galleryimages = data;
