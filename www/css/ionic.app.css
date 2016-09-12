@@ -10125,3 +10125,6 @@ span.subs {
 
 .small-font:before {
   font-size: 25px !important; }
+
+.pb20 {
+  padding-bottom: 20px; }

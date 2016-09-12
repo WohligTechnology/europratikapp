@@ -14,7 +14,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
 
 })
 
-.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicSlideBoxDelegate, $ionicLoading) {
+.controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicSlideBoxDelegate, $ionicLoading,$state ) {
 
   globalFunction.loading();
   MyServices.getSlider(function(data) {
@@ -23,6 +23,18 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
     $ionicSlideBoxDelegate.update();
     $ionicLoading.hide();
   });
+  MyServices.getArrival(function(data) {
+console.log(data);
+$scope.newArrival=data;
+var str = $scope.newArrival[0].link;
+str = str.substring(0, str.length - 2);
+$scope.newId=str.substring(11);
+console.log($scope.newId);
+  });
+  $scope.goToProduct=function(id){
+console.log(id);
+$state.go('app.productselect', { id : id });
+  }
 
   $scope.slideHasChanged = function(index) {
     if (index == ($scope.sliderdata.length - 1)) {

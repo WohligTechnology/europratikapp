@@ -17,8 +17,9 @@
       <p class="exclusive">EURO PRATIK NEW ARRIVAL</p>
 
       <div class="">
+        <img ng-src="{{newArrival[0].image1|serverimage}}" alt="" class="full-image" ng-click="goToProduct(newId)">
+        <!-- <img ng-src="{{newArrival[0].image1|serverimage}}" alt="" class="full-image" ui-sref="app.productselect({id:'newId'})">{{newId}} -->
 
-        <img ng-src="{{arrivallist[0].image1|serverimage}}" alt="" class="full-image" ui-sref="app.productselect({id:arrivallist[0].link})">
       </div>
     </div>
     <div class="products-mg">
