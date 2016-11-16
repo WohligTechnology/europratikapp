@@ -12,6 +12,7 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
     }, 10000);
   };
 
+
 })
 
 .controller('HomeCtrl', function($scope, $ionicModal, $timeout, MyServices, $ionicSlideBoxDelegate, $ionicLoading,$state ) {
@@ -101,6 +102,35 @@ $state.go('app.productselect', { id : id });
 
 })
 
+.controller('SearchCtrl', function($scope, MyServices, $ionicLoading, $state) {
+
+  $scope.getSearchByCat  = function(objname){
+      var senddata ={};
+    senddata.pageno=1;
+    senddata.name=objname;
+
+    MyServices.getsearchresult(senddata,function(data) {
+      $ionicLoading.hide();
+      $scope.products = data.queryresult;
+      console.log('$scope.gallefcgfgry', $scope.products);
+      // $scope.gallery = _.chunk($scope.gallery, 2);
+    });
+
+
+  }
+  $scope.objfilter ={};
+$scope.clear =function(){
+  $scope.objfilter.name ="";
+}
+$scope.goToDetail = function(catid,subcatid,prid) {
+  // ui-sref="app.productdetail({id:pro.id})"
+  $state.go("app.productdetail", {
+    catid: catid,
+    subcatid: subcatid,
+    id: prid
+  })
+}
+  })
 .controller('ContactCtrl', function($scope, MyServices, $ionicLoading) {
 
     $scope.formFeedback = {};
@@ -129,7 +159,7 @@ $state.go('app.productselect', { id : id });
   .controller('KnowusCtrl', function($scope) {
 
   })
-  .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state, $ionicLoading) {
+  .controller('ProductcategoryCtrl', function($scope, $stateParams, MyServices, $state, $ionicLoading, $state) {
 
     // MyServices.getEachCategory($stateParams.id,function(data) {
     //   $scope.category=data;

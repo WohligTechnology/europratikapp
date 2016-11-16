@@ -3,7 +3,7 @@
     <div class="bar bar-header item-input-inset">
       <label class="item-input-wrapper">
         <i class="icon ion-ios-search placeholder-icon"></i>
-        <input type="search" ng-model="objfilter.name" placeholder="Search" ng-change="getSearchByCat()">
+        <input type="search" ng-model="objfilter.name" placeholder="Search" ng-change="getSearchByCat(objfilter.name)">
       </label>
       <button class="button button-clear" ng-click="clear()">
         Cancel
