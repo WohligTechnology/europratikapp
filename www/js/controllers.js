@@ -102,7 +102,7 @@ $state.go('app.productselect', { id : id });
 
 })
 
-.controller('SearchCtrl', function($scope, MyServices, $ionicLoading, $state) {
+.controller('SearchCtrl', function($scope, MyServices, $ionicLoading, $state ) {
 
   $scope.getSearchByCat  = function(objname){
       var senddata ={};
@@ -110,10 +110,16 @@ $state.go('app.productselect', { id : id });
     senddata.name=objname;
 
     MyServices.getsearchresult(senddata,function(data) {
+      globalFunction.loading();
+
+      if(data){
+        $scope.products = data.queryresult;
+        console.log('$scope.gallefcgfgry', $scope.products);
+        // $scope.gallery = _.chunk($scope.gallery, 2);
+      }
       $ionicLoading.hide();
-      $scope.products = data.queryresult;
-      console.log('$scope.gallefcgfgry', $scope.products);
-      // $scope.gallery = _.chunk($scope.gallery, 2);
+
+
     });
 
 

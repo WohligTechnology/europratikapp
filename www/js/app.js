@@ -19,6 +19,18 @@ function initPushwoosh() {
     }
   );
 }
+
+var firstapp = angular.module('firstapp', [
+ 'ui.router',
+ 'phonecatControllers',
+ 'templateservicemod',
+ 'navigationservice',
+ 'pascalprecht.translate',
+ 'angulartics',
+ 'angulartics.google.analytics'
+]);
+
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
@@ -201,3 +213,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   };
 })
 ;
+firstapp.filter('letterLimit', function() {
+    return function(value, limit) {
+        if(value){
+          if (value.length < limit) {
+              return value;
+          } else {
+              return value.slice(0, limit - 2) + "..";
+          }
+        }else{
+          return "";
+        }
+    };
+});
+firstapp.filter('cut', function() {
+    return function(value, wordwise, max, tail) {
+        if (!value) return '';
+
+        max = parseInt(max, 10);
+        if (!max) return value;
+        if (value.length <= max) return value;
+        value = value.substr(0, max);
+        if (wordwise) {
+            var lastspace = value.lastIndexOf(' ');
+            if (lastspace != -1) {
+                value = value.substr(0, lastspace);
+            }
+        }
+
+        return value + (tail || ' …');
+    };
+});
