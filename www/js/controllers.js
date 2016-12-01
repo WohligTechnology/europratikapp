@@ -1,7 +1,7 @@
 var globalFunction = {};
 angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gallery'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicLoading) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicLoading,MyServices) {
 
   globalFunction.loading = function() {
     $ionicLoading.show({
@@ -11,7 +11,13 @@ angular.module('starter.controllers', ['starter.services', 'ngCordova', 'ion-gal
       $ionicLoading.hide();
     }, 10000);
   };
+  MyServices.getNotifications(function(data) {
+    $ionicLoading.hide();
+    $scope.Notifications = data;
+    console.log($scope.Notifications.length);
+    console.log('$scope.Notifications', $scope.Notifications);
 
+  });
 
 })
 
@@ -96,7 +102,6 @@ $state.go('app.productselect', { id : id });
       $scope.subscribe.email = "";
     });
     $ionicLoading.hide();
-
     // $scope.subscribeEmail = data;
   };
 
@@ -352,7 +357,7 @@ $scope.goToDetail = function(catid,subcatid,prid) {
       var image = $filter("serverimage")($scope.ProductDetails.image);
       console.log(image);
       $cordovaSocialSharing
-        .share($scope.ProductDetails.name, '', image, '') // Share via native share sheet
+        .share('', '', image, '') // Share via native share sheet
         .then(function(result) {
           // Success!
         }, function(err) {
@@ -478,10 +483,7 @@ $scope.goToDetail = function(catid,subcatid,prid) {
     var ref = cordova.InAppBrowser.open(url, target, options);
   };
 
-
 })
-
-
 
 .controller('ProductCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading) {
   $ionicModal.fromTemplateUrl('templates/popup.html', {
