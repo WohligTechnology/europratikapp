@@ -6,12 +6,19 @@
     <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="items">
+      <div class="row padding2" >
+        <div class="col padding2" >
+          <img ng-src="img/Logo-woodcellar.jpg" alt="" class="fullimage" ng-click="opeLink()">
+        </div>
+        <div class="col padding2" >
+          <img ng-src="{{brands1.image|serverimage}}" alt="" class="fullimage" ui-sref="app.productselect({id:pro.id})">
+        </div>
+      </div>
       <div class="row padding2" ng-repeat="product in brands">
         <div class="col padding2" ng-repeat="pro in product">
           <img ng-src="{{pro.image|serverimage}}" alt="" class="fullimage" ui-sref="app.productselect({id:pro.id})">
         </div>
+
       </div>
-    </div>
   </ion-content>
 </ion-view>

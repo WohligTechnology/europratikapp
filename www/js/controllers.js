@@ -485,7 +485,7 @@ $scope.goToDetail = function(catid,subcatid,prid) {
 
 })
 
-.controller('ProductCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading) {
+.controller('ProductCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicLoading,$filter) {
   $ionicModal.fromTemplateUrl('templates/popup.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -504,8 +504,18 @@ $scope.goToDetail = function(catid,subcatid,prid) {
   MyServices.getAllProducts(function(data) {
     $ionicLoading.hide();
     $scope.brands = data;
+    $scope.brands1 = data[0];
+     $scope.brands = data.slice(1);
     $scope.brands = _.chunk($scope.brands, 2);
     console.log('$scope.brands', $scope.brands);
   });
+  var options = "location=no,toolbar=yes";
+  var target = "_blank";
+  var url = "";
+  var link = "http://www.woodcellarfloor.com/";
+    $scope.opeLink = function() {
+      url =link ;
+      var ref = cordova.InAppBrowser.open(url, target, options);
+    };
 
 });
