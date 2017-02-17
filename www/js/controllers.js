@@ -479,8 +479,11 @@ $scope.goToDetail = function(catid,subcatid,prid) {
   var url = "";
 
   $scope.openPDF = function(link) {
-    url = $filter('serverimage')(link);
-    var ref = cordova.InAppBrowser.open(url, target, options);
+    // url = $filter('serverimage')(link);
+    $scope.pdfURL = $filter('uploadpath')(link);
+        $scope.finalURL = 'http://docs.google.com/gview?url=' + $scope.pdfURL + '&embedded=true';
+        var ref = cordova.InAppBrowser.open($scope.finalURL, target, options);
+
   };
 
 })
